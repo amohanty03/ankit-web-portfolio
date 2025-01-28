@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import React from 'react'
 import Typewriter from "typewriter-effect";
 import { AuroraBackground } from "../components/ui/aurora-background";
+import MagicButton from "./ui/MagicButton";
+import { FaLocationArrow } from "react-icons/fa";
 
 const Hero = () => {
     function rotate(deg: number) {
@@ -62,7 +64,7 @@ const Hero = () => {
                         }
 
                         typewriter.typeString("Howdy, I'm <span style='background: linear-gradient(90deg, orange, red); -webkit-background-clip: text; color: transparent;'>Ankit Mohanty</span>")
-                            .pauseFor(1000)
+                            .pauseFor(900)
                             .callFunction(() => {
                                 const cursor = document.querySelector('.Typewriter__cursor') as HTMLElement;
                                 if (cursor) {
@@ -84,19 +86,27 @@ const Hero = () => {
                     style={{ display: 'inline-block', width: '50px', height: '50px' }}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    transition={{ delay: 3.0, duration: 1.0 }}
+                    transition={{ delay: 2.5, duration: 1.0 }}
                 />
             </div>
             </div>
+            {/* <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl"></p> */}
             <div className="md:text-xl text-white text-center mt-2">
-            <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 4.0, duration: 1.0 }}
-                >
-                    Master’s student at Texas A&M pursuing Computer Science keen on building impactful software and innovative solutions :)
-            </motion.div>
+                <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 4.0, duration: 1.0 }}
+                    >
+                        Master’s student at Texas A&M pursuing Computer Science keen on building impactful software and innovative solutions :)
+                </motion.div>
             </div>
+            <a href="#about">
+                <MagicButton
+                title="Show my work"
+                icon={<FaLocationArrow />}
+                position="right"
+                />
+            </a>
             </motion.div>
         </AuroraBackground>
     </div>
