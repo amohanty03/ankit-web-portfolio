@@ -1,43 +1,61 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React from 'react'
+import React from "react";
 import Typewriter from "typewriter-effect";
 import { AuroraBackground } from "../components/ui/aurora-background";
 import MagicButton from "./ui/MagicButton";
-import { FaLocationArrow } from "react-icons/fa";
+import { FaFileCode, FaRegFileCode, FaLaptopCode } from "react-icons/fa";
 
 const Hero = () => {
-    function rotate(deg: number) {
-        return {
-            transform: `rotate(${deg}deg)`
-        };
-    }
+  function rotate(deg: number) {
+    return {
+      transform: `rotate(${deg}deg)`,
+    };
+  }
 
   return (
-    <div className=''>
-        <AuroraBackground className="w-screen">
-            <div className="absolute top-0 left-0 w-full flex justify-start">
-                <img src="logo.jpg" alt="AM Logo" className="ml-4 mt-4" style={{ mixBlendMode: 'difference', width: '82px', height: '66px' }} />
+    <div className="relative">
+      <AuroraBackground className="w-screen">
+        {/* Logo */}
+        <div className="absolute top-0 left-0 w-full flex justify-start">
+          <img
+            src="logo.jpg"
+            alt="AM Logo"
+            className="ml-4 mt-4 w-[30vw] sm:w-[20vw] md:w-[10vw] max-w-[75px] h-auto"
+            style={{ mixBlendMode: "difference" }}
+          />
+        </div>
+        {/* Main Content */}
+        <motion.div
+          initial={{ opacity: 0.0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            delay: 0.3,
+            duration: 0.8,
+            ease: "easeInOut",
+          }}
+          className="relative flex flex-col gap-4 items-center justify-center w-full h-full px-4"
+        >
+          {/* Profile Picture */}
+          <div
+            className="relative rounded-full overflow-hidden border-4 shadow-md border-black w-[60vw] sm:w-[50vw] md:w-[40vw] lg:w-[300px] max-w-[300px] aspect-[305/375]"
+          >
+            <div className="absolute inset-0 flex items-center justify-center">
+              <img
+                alt="Ankit Mohanty"
+                loading="lazy"
+                decoding="async"
+                className="absolute w-full h-full object-cover"
+                src="profile.jpg"
+              />
             </div>
-            <motion.div
-            initial={{ opacity: 0.0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{
-                delay: 0.3,
-                duration: 0.8,
-                ease: "easeInOut",
-            }}
-            className="relative flex flex-col gap-4 items-center justify-center w-full h-full"
-            >
-            <div className="absolute top-0 mt-20 rounded-full overflow-hidden border-4 shadow-md border-black" style={{ width: 'calc(305px)', height: 'calc(375px)' }}>
-                <div className="absolute" style={{ top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '100%', height: '100%' }}>
-                    <img alt="Ankit Mohanty" loading="lazy" decoding="async" data-nimg="fill" style={{ position: 'absolute', height: '100%', width: '100%', left: 0, top: 0, right: 0, bottom: 0, objectFit: 'cover', color: 'transparent' }} src="profile.jpg" />
-                </div>
-            </div>
-            <div className="text-3xl md:text-6xl font-bold text-white text-center mt-44">
+          </div>
+
+          {/* Typewriter Heading */}
+          <div className="text-xl sm:text-3xl md:text-6xl font-bold text-white text-center sm:mt-20 md:mt-10 lg:mt-10">
             <style>{`
-                @keyframes wave {
+              @keyframes wave {
                 0% { transform: rotate(0deg); }
                 10% { transform: rotate(-10deg); }
                 20% { transform: rotate(12deg); }
@@ -45,72 +63,81 @@ const Hero = () => {
                 40% { transform: rotate(9deg); }
                 50% { transform: rotate(0deg); }
                 100% { transform: rotate(0deg); }
-                }
-                .wave-emoji {
+              }
+              .wave-emoji {
                 animation-name: wave;
                 animation-duration: 1.8s;
                 animation-iteration-count: infinite;
                 transform-origin: 70% 70%;
                 display: inline-block;
-                }
-            `}
-            </style>
-            <div style={{ display: 'inline-flex', alignItems: 'center' }}>
-                <Typewriter
-                    onInit={(typewriter) => {
-                        const cursor = document.querySelector('.Typewriter__cursor') as HTMLElement;
-                        if (cursor) {
-                            cursor.style.visibility = "visible";
-                        }
+              }
+            `}</style>
+            <div style={{ display: "inline-flex", alignItems: "center" }}>
+              <Typewriter
+                onInit={(typewriter) => {
+                  const cursor = document.querySelector(
+                    ".Typewriter__cursor"
+                  ) as HTMLElement;
+                  if (cursor) {
+                    cursor.style.visibility = "visible";
+                  }
 
-                        typewriter.typeString("Howdy, I'm <span style='background: linear-gradient(90deg, orange, red); -webkit-background-clip: text; color: transparent;'>Ankit Mohanty</span>")
-                            .pauseFor(900)
-                            .callFunction(() => {
-                                const cursor = document.querySelector('.Typewriter__cursor') as HTMLElement;
-                                if (cursor) {
-                                    cursor.style.visibility = "hidden";
-                                }
-                            })
-                            .start();
-                        }}
-                    options={{
-                    autoStart: true,
-                    loop: false,
-                    delay: 60,
-                    }}  
-                />
-                <motion.img
-                    src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44b.png"
-                    alt="Waving Hand"
-                    className="wave-emoji"
-                    style={{ display: 'inline-block', width: '50px', height: '50px' }}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 2.5, duration: 1.0 }}
-                />
+                  typewriter
+                    .typeString(
+                      "Howdy, I'm <span style='background: linear-gradient(90deg, orange, red); -webkit-background-clip: text; color: transparent;'>Ankit Mohanty</span>"
+                    )
+                    .pauseFor(900)
+                    .callFunction(() => {
+                      const cursor = document.querySelector(
+                        ".Typewriter__cursor"
+                      ) as HTMLElement;
+                      if (cursor) {
+                        cursor.style.visibility = "hidden";
+                      }
+                    })
+                    .start();
+                }}
+                options={{
+                  autoStart: true,
+                  loop: false,
+                  delay: 60,
+                }}
+              />
+              <motion.img
+                src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44b.png"
+                alt="Waving Hand"
+                className="wave-emoji w-[20vw] sm:w-[10vw] md:w-[5vw] max-w-[45px] h-auto"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2.5, duration: 1.0 }}
+              />
             </div>
-            </div>
-            {/* <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl"></p> */}
-            <div className="md:text-xl text-white text-center mt-2">
-                <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 4.0, duration: 1.0 }}
-                    >
-                        Master’s student at Texas A&M pursuing Computer Science keen on building impactful software and innovative solutions :)
-                </motion.div>
-            </div>
-            <a href="#about">
-                <MagicButton
-                title="Show my work"
-                icon={<FaLocationArrow />}
-                position="right"
-                />
-            </a>
+          </div>
+
+          {/* Subheading */}
+          <div className="md:text-xl text-white text-center sm:mt-10 md:mt-5 lg:mt-5">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 4.0, duration: 1.0 }}
+            >
+              Master’s student at Texas A&M pursuing Computer Science keen on
+              building impactful software and innovative solutions :)
             </motion.div>
-        </AuroraBackground>
-    </div>
-  )
-}
+          </div>
 
-export default Hero
+          {/* CTA Button */}
+          <a href="#about">
+            <MagicButton
+              title="See my work"
+              icon={<FaRegFileCode />}
+              position="right"
+            />
+          </a>
+        </motion.div>
+      </AuroraBackground>
+    </div>
+  );
+};
+
+export default Hero;
