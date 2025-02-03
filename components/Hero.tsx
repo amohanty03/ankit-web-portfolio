@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import Typewriter from "typewriter-effect";
-import { AuroraBackground } from "../components/ui/aurora-background";
+import { AuroraBackground } from "./ui/AuroraBackground";
 import MagicButton from "./ui/MagicButton";
 import { FaFileCode, FaRegFileCode, FaLaptopCode } from "react-icons/fa";
 
@@ -16,7 +16,7 @@ const Hero = () => {
 
   return (
     <div className="relative">
-      <AuroraBackground className="w-screen">
+      <AuroraBackground className="w-screen h-screen">
         {/* Logo */}
         <div className="absolute top-0 left-0 w-full flex justify-start">
           <img
@@ -39,7 +39,7 @@ const Hero = () => {
         >
           {/* Profile Picture */}
           <div
-            className="relative rounded-full overflow-hidden border-4 shadow-md border-black w-[60vw] sm:w-[50vw] md:w-[40vw] lg:w-[300px] max-w-[300px] aspect-[305/375]"
+            className="relative rounded-full overflow-hidden border-4 shadow-md border-x-red-700 border-y-orange-600 w-[60vw] sm:w-[50vw] md:w-[40vw] lg:w-[300px] max-w-[300px] aspect-[305/375]"
           >
             <div className="absolute inset-0 flex items-center justify-center">
               <img
@@ -115,14 +115,13 @@ const Hero = () => {
           </div>
 
           {/* Subheading */}
-          <div className="md:text-xl text-white text-center sm:mt-10 md:mt-5 lg:mt-5">
+          <div className="md:text-2xl text-white text-center sm:mt-10 md:mt-5 lg:mt-5">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 4.0, duration: 1.0 }}
             >
-              Master’s student at Texas A&M pursuing Computer Science keen on
-              building impactful software and innovative solutions :)
+              Welcome to my portfolio! Here, you can learn more about me and check out what I'm working on :)
             </motion.div>
           </div>
 
