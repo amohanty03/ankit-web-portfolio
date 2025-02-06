@@ -7,15 +7,18 @@ import Image from "next/image";
 import { BackgroundGradient } from "@/components/ui/BackgroundGradient";
 import MagicButton from "@/components/ui/MagicButton";
 import About from "@/components/About";
+import { Timeline } from "@/components/ui/Timeline";
+import { Education } from "@/components/Education";
+import { AuroraBackground } from "@/components/ui/AuroraBackground";
 
 export default function Home() {
   return (
     <main className="relative bg-black flex justify-center items-center flex-col overflow-hidden mx-auto">
+      <AuroraBackground className="w-screen">  
         <div className="items-center justify-center w-full">
-        
-          {/* <FloatingNav navItems={[{ name: "Home", link: "/" }, { name: "About", link: "/about" }]} /> */}
           <Hero />
           <About />
+          <Education />
           <div className="h-36 w-full"></div> {/* Spacer before FloatingDock */}
           <div className="fixed bottom-5 left-0 flex items-center justify-center w-full z-50">
             <FloatingDock
@@ -30,6 +33,7 @@ export default function Home() {
             />
           </div>
         </div>
+        </AuroraBackground>
     </main>
   );
 }

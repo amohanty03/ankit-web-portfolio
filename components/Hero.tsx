@@ -15,8 +15,8 @@ const Hero = () => {
   }
 
   return (
-    <div className="relative">
-      <AuroraBackground className="w-screen h-screen">
+    <div className="relative h-screen">
+      {/* <AuroraBackground className="w-screen h-screen"> */}
         {/* Logo */}
         <div className="absolute top-0 left-0 w-full flex justify-start">
           <img
@@ -26,7 +26,7 @@ const Hero = () => {
             style={{ mixBlendMode: "difference" }}
           />
         </div>
-        {/* Main Content */}
+
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -37,9 +37,9 @@ const Hero = () => {
           }}
           className="relative flex flex-col gap-4 items-center justify-center w-full h-full px-4"
         >
-          {/* Profile Picture */}
+
           <div
-            className="relative rounded-full overflow-hidden border-4 shadow-md border-x-red-700 border-y-orange-600 w-[60vw] sm:w-[50vw] md:w-[40vw] lg:w-[300px] max-w-[300px] aspect-[305/375]"
+            className="relative rounded-full overflow-hidden border-4 shadow-md border-x-red-700 border-y-orange-600 w-[60vw] sm:w-[50vw] md:w-[40vw] lg:w-[300px] max-w-[300px] aspect-[305/375] mt-28"
           >
             <div className="absolute inset-0 flex items-center justify-center">
               <img
@@ -52,7 +52,6 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Typewriter Heading */}
           <div className="text-xl sm:text-3xl md:text-6xl font-bold text-white text-center sm:mt-20 md:mt-10 lg:mt-10">
             <style>{`
               @keyframes wave {
@@ -114,7 +113,6 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Subheading */}
           <div className="md:text-2xl text-white text-center sm:mt-10 md:mt-5 lg:mt-5">
             <motion.div
               initial={{ opacity: 0 }}
@@ -125,7 +123,6 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* CTA Button */}
           <a href="#about">
             <MagicButton
               title="See my work"
@@ -134,7 +131,6 @@ const Hero = () => {
             />
           </a>
         </motion.div>
-      </AuroraBackground>
     </div>
   );
 };
