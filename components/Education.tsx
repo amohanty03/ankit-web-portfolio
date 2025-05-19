@@ -81,7 +81,7 @@ export function Education() {
               />
               <div className="flex flex-col">
                 <p className="text-base text-gray-50">University of Wisconsin – Madison</p>
-                <p className="text-sm text-gray-400">Madison, WI | GPA: 3.8/4.0</p>
+                <p className="text-sm text-gray-400">Madison, Wisconsin | GPA: 3.8/4.0</p>
               </div>
             </div>
             <div className="text content z-10">
