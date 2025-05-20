@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Timeline } from "@/components/ui/Timeline";
+import { Timeline } from "@/components/ui/education-timeline";
 import { cn } from "@/lib/utils";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { JSX } from "react/jsx-runtime";
@@ -34,7 +34,7 @@ export function Education() {
               "bg-[url('/tamu.jpg')] bg-cover bg-center",
             )}
           >
-            <div className="absolute inset-0 bg-black/40 transition duration-300 group-hover/card:bg-black/60" />
+            <div className="absolute inset-0 bg-black/60 transition duration-300 group-hover/card:bg-black/80" />
             <div className="flex items-center space-x-4 z-10">
               <Image
                 height={100}
@@ -47,7 +47,7 @@ export function Education() {
                 <p className="text-base text-gray-50 relative z-10">
                   Texas A&M University
                 </p>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-gray-50">
                   College Station, Texas | GPA: 4.0/4.0
                 </p>
               </div>
@@ -77,7 +77,7 @@ export function Education() {
               "bg-[url('/uwmad.jpg')] bg-cover bg-center",
             )}
           >
-            <div className="absolute inset-0 bg-black/40 transition duration-300 group-hover/card:bg-black/60" />
+            <div className="absolute inset-0 bg-black/60 transition duration-300 group-hover/card:bg-black/80" />
             <div className="flex items-center space-x-4 z-10">
               <Image
                 height={100}
@@ -90,7 +90,7 @@ export function Education() {
                 <p className="text-base text-gray-50">
                   University of Wisconsin – Madison
                 </p>
-                <p className="text-sm text-gray-400">
+                <p className="text-sm text-gray-50">
                   Madison, Wisconsin | GPA: 3.8/4.0
                 </p>
               </div>

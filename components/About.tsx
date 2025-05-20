@@ -9,8 +9,8 @@ import {
   FaGithub,
   FaRegFilePdf,
 } from "react-icons/fa6";
-import { BackgroundGradient } from "@/components/ui/BackgroundGradient";
-import MagicButton from "@/components/ui/MagicButton";
+import { BackgroundGradient } from "@/components/ui/background-gradient";
+import MagicButton from "@/components/ui/magic-button";
 
 export default function About() {
   return (

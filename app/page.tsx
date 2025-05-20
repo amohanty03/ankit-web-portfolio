@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
-import Hero from "@/components/Hero";
-import { FloatingDock } from "@/components/ui/FloatingDock";
+import Hero from "@/components/hero";
+import { FloatingDock } from "@/components/ui/floating-dock";
 import {
   FaHouse,
   FaUser,
@@ -14,12 +14,12 @@ import {
   FaBriefcase,
 } from "react-icons/fa6";
 import Image from "next/image";
-import { BackgroundGradient } from "@/components/ui/BackgroundGradient";
-import MagicButton from "@/components/ui/MagicButton";
-import About from "@/components/About";
-import { Timeline } from "@/components/ui/Timeline";
-import { Education } from "@/components/Education";
-import { AuroraBackground } from "@/components/ui/AuroraBackground";
+import { BackgroundGradient } from "@/components/ui/background-gradient";
+import MagicButton from "@/components/ui/magic-button";
+import { Timeline } from "@/components/ui/education-timeline";
+import { Education } from "@/components/education";
+import { Experience } from "@/components/experience";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 
 export default function Home() {
   return (
@@ -29,6 +29,7 @@ export default function Home() {
         <div className="items-center justify-center w-full">
           <Hero />
           <Education />
+          <Experience />
           <div className="h-36 w-full"></div> {/* Spacer before FloatingDock */}
           <div className="fixed bottom-5 left-0 flex items-center justify-center w-full z-50">
             <FloatingDock

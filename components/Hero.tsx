@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import React from "react";
 import Typewriter from "typewriter-effect";
-import { AuroraBackground } from "./ui/AuroraBackground";
-import MagicButton from "./ui/MagicButton";
+import { AuroraBackground } from "./ui/aurora-background";
+import MagicButton from "./ui/magic-button";
 import { FaFileCode, FaRegFileCode, FaLaptopCode } from "react-icons/fa";
 import { FaRegFilePdf } from "react-icons/fa6";
 
