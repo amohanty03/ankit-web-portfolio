@@ -6,6 +6,7 @@ import { Timeline } from "@/components/ui/Timeline";
 import { cn } from "@/lib/utils";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { JSX } from "react/jsx-runtime";
+import { motion } from "framer-motion";
 
 export function Education() {
   const [showCarousel, setShowCarousel] = useState(false);
@@ -99,7 +100,17 @@ export function Education() {
   ];
 
   return (
-    <div className="relative w-full mt-48">
+    <div className="relative w-full mt-12 md:mt-14 lg:mt-20">
+      <motion.div
+                initial={{ opacity: 0.0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: 0.3,
+                  duration: 0.8,
+                  ease: "easeInOut",
+                }}
+                className="relative flex flex-col gap-4 items-center justify-center w-full h-full px-6 sm:px-10 md:px-0 lg:px-0"
+              >
       <Timeline data={timelineData} />
 
       {showCarousel && activeUniversity && (
@@ -115,6 +126,7 @@ export function Education() {
           </div>
         </div>
       )}
+      </motion.div>
     </div>
   );
 }

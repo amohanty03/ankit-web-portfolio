@@ -16,18 +16,7 @@ const Hero = () => {
   }
 
   return (
-    <div className="relative h-screen">
-      {/* <AuroraBackground className="w-screen h-screen"> */}
-        {/* Logo */}
-        <div className="absolute top-0 left-0 w-full flex justify-start">
-          <img
-            src="logo.jpg"
-            alt="AM Logo"
-            className="ml-4 mt-4 w-[30vw] sm:w-[20vw] md:w-[10vw] max-w-[75px] h-auto"
-            style={{ mixBlendMode: "difference" }}
-          />
-        </div>
-
+    <div className="relative">
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,13 +25,32 @@ const Hero = () => {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="relative flex flex-col gap-4 items-center justify-center w-full h-full"
+          className="relative flex flex-col gap-4 items-center justify-center w-full h-full px-6 sm:px-10 md:px-0 lg:px-0"
         >
 
+          <div className="fixed bottom-0 left-0 bg-black text-white text-xs p-1 z-50">
+            <div className="block sm:hidden">Base (&lt;640px)</div>
+            <div className="hidden sm:block md:hidden">sm (640px–767px)</div>
+            <div className="hidden md:block lg:hidden">md (768px–1023px)</div>
+            <div className="hidden lg:block xl:hidden">lg (1024px–1279px)</div>
+            <div className="hidden xl:block">xl (1280px+)</div>
+          </div>
+
+          <div className="absolute top-0 left-0 w-full flex justify-start">
+            <img
+              src="logo.jpg"
+              alt="AM Logo"
+              className="ml-4 mt-4 w-12 sm:w-16 md:w-20 lg:w-24 max-w-[75px] h-auto"
+              style={{ mixBlendMode: "difference" }}
+            />
+          </div>
+
+
           <div
-            className="relative rounded-full overflow-hidden border-4 shadow-md border-x-red-700 border-y-orange-600 w-[60vw] sm:w-[50vw] md:w-[40vw] lg:w-[300px] max-w-[300px] aspect-[305/375]"
+            className="relative rounded-full overflow-hidden border-4 shadow-md border-x-red-700 border-y-orange-600 
+               w-48 sm:w-64 md:w-72 lg:w-[250px] aspect-[4/5] max-w-[300px] mt-20 sm:mt-10 md:mt-20 lg:mt-20"
           >
-            <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute inset-0 flex">
               <img
                 alt="Ankit Mohanty"
                 loading="lazy"
@@ -53,7 +61,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="text-xl sm:text-3xl md:text-6xl font-bold text-white text-center sm:mt-10 md:mt-5 lg:mt-5 sm:px-10 md:px-40 lg:px-40">
+          <div className="text-xl sm:text-3xl md:text-6xl font-bold text-white text-center sm:mt-10 md:mt-5 lg:mt-5 sm:px-10 md:px-3 lg:px-0">
             <style>{`
               @keyframes wave {
                 0% { transform: rotate(0deg); }
@@ -84,7 +92,7 @@ const Hero = () => {
 
                   typewriter
                     .typeString(
-                      "Howdy, I'm <span style='background: linear-gradient(90deg, orange, red); -webkit-background-clip: text; color: transparent;'>Ankit Mohanty</span>"
+                      "Howdy, I'm <span style='background: linear-gradient(90deg, orange, red); -webkit-background-clip: text; color: transparent;'>Ankit Mohanty!</span>"
                     )
                     .pauseFor(900)
                     .callFunction(() => {
@@ -103,18 +111,18 @@ const Hero = () => {
                   delay: 60,
                 }}
               />
-              <motion.img
+              {/* <motion.img
                 src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44b.png"
                 alt="Waving Hand"
                 className="wave-emoji w-6 sm:w-6 md:w-8 lg:w-10 xl:w-12 h-auto"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.15, duration: 1.0 }}
-              />
+              /> */}
             </div>
           </div>
 
-          <div className="sm:text-xs md:text-lg lg:text-xl text-white text-justify sm:mt-10 md:mt-5 lg:mt-5 sm:px-10 md:px-40 lg:px-40">
+          <div className="sm:text-xs md:text-lg lg:text-xl text-white text-justify sm:mt-10 md:mt-5 lg:mt-5 sm:px-10 md:px-10 lg:px-28">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
