@@ -7,3 +7,23 @@ body {
   margin: 0;
   padding: 0;
 }
+
+:root {
+  --animation-duration: 40s;
+  --animation-direction: forwards;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll var(--animation-duration) linear infinite;
+  animation-direction: var(--animation-direction);
+  animation-play-state: running;
+}

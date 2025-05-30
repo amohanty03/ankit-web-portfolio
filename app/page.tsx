@@ -20,6 +20,7 @@ import { Timeline } from "@/components/ui/education-timeline";
 import { Education } from "@/components/education";
 import { Experience } from "@/components/experience";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import ProgrammingIconsRibbonStack from "@/components/programming-languages";
 
 export default function Home() {
   return (
@@ -28,6 +29,7 @@ export default function Home() {
       <AuroraBackground className="w-screen">
         <div className="items-center justify-center w-full">
           <Hero />
+          <ProgrammingIconsRibbonStack />
           <Education />
           <Experience />
           <div className="h-36 w-full"></div> {/* Spacer before FloatingDock */}

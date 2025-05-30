@@ -53,14 +53,9 @@ export function Education() {
               </div>
             </div>
             <div className="text content z-10">
-              <h1 className="font-bold text-lg md:text-sm text-gray-50">
+              <h1 className="font-bold text-lg sm:text-sm md:text-sm lg:text-base xl:text-xl text-gray-50">
                 Master of Science in Computer Science
               </h1>
-              <p className="text-sm text-gray-50 text-justify">
-                Courses Taken: Software Engineering, Digital Forensics
-                Engineering, Distributed Processing Systems, Algorithms,
-                Computer Vision, Network Security
-              </p>
             </div>
           </div>
         </div>
@@ -96,14 +91,9 @@ export function Education() {
               </div>
             </div>
             <div className="text content z-10">
-              <h1 className="font-bold text-lg md:text-sm text-gray-50">
+              <h1 className="font-bold text-lg sm:text-sm md:text-sm lg:text-base xl:text-xl text-gray-50">
                 Bachelor of Science in Computer Science
               </h1>
-              <p className="text-sm text-gray-50 text-justify">
-                Courses Taken: Data Structures and Algorithms, Machine
-                Organization, Discrete Mathematics, Operating Systems, DBMS,
-                Graphics, Mobile Systems, AI, Big Data Systems, UI/UX
-              </p>
             </div>
           </div>
         </div>

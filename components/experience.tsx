@@ -39,13 +39,14 @@ export function Experience() {
               </div>
             </div>
             <div className="text content z-10">
-              <h1 className="font-bold text-lg md:text-sm text-gray-50">
+              <h1 className="font-bold text-sm md:text-sm lg:text-md text-gray-50">
                 Responsibilities:
               </h1>
               <ul className="text-sm text-gray-50 text-justify">
                 <li>
                   Analyzed weekly PHQ-9 and PCL-5 depression scores from a
-                  longitudinal study using Python and scikit-learn.
+                  longitudinal study using Python and scikit-learn under Dr.
+                  So-Min Cheong.
                 </li>
                 <li>
                   Generated participant-level imputed datasets using MICE
@@ -88,14 +89,15 @@ export function Experience() {
               </div>
             </div>
             <div className="text content z-10">
-              <h1 className="font-bold text-lg md:text-sm text-gray-50">
+              <h1 className="font-bold text-sm md:text-sm lg:text-md text-gray-50">
                 Responsibilities:
               </h1>
               <ul className="text-sm text-gray-50 text-justify">
                 <li>
                   Leveraged OpenAI’s API to develop a database of Li-ion cathode
                   battery voltages across 100+ materials, comparing results
-                  against leading databases to enhance data reliability.
+                  against leading databases to enhance data reliability under
+                  Dr. Benjamin Afflerbach.
                 </li>
                 <li>
                   Improved data accuracy by integrating ChemDataExtractor NLP
@@ -114,7 +116,7 @@ export function Experience() {
         <div className="w-full group/card">
           <div
             className={cn(
-              "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl mx-auto flex flex-col justify-between p-4",
+              "cursor-pointer overflow-hidden relative card h-auto sm:h-96 rounded-md shadow-xl mx-auto flex flex-col justify-between p-4",
               "bg-[url('/Daylight-Solutions-Logo.jpg')] bg-cover bg-center",
             )}
           >
@@ -137,7 +139,7 @@ export function Experience() {
               </div>
             </div>
             <div className="text content z-10">
-              <h1 className="font-bold text-lg md:text-sm text-gray-50">
+              <h1 className="font-bold text-sm md:text-sm lg:text-md text-gray-50">
                 Responsibilities:
               </h1>
               <ul className="text-sm text-gray-50 text-justify">
