@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import * as Icons from "@/components/programming-icons";
 import { JSX } from "react/jsx-runtime";
 import { motion } from "framer-motion";
+import { Section } from "lucide-react";
+import SectionTitle from "./ui/section-title";
 
 interface ProgrammingIconsRibbonProps {
   direction?: "left" | "right";
@@ -53,7 +55,7 @@ export const ProgrammingIconsRibbon = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20  max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
         slowOnHover &&
           "translate-x-0 [transition:calc(var(--animation-duration)_*_.1)_ease-out]",
         slowOnHover &&
@@ -92,7 +94,8 @@ const ProgrammingIconsRibbonStack = (): JSX.Element => {
 
   return (
     <section id="languages-tools">
-      <div className="py-5 mt-12 md:mt-14 lg:mt-20">
+      <div className="relative py-5 mt-12 md:mt-14 lg:mt-20 px-6 sm:px-10 md:px-0 lg:px-0">
+        <SectionTitle title="Languages & Tools" />
         <motion.div
           initial={{ opacity: 0.0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -101,11 +104,8 @@ const ProgrammingIconsRibbonStack = (): JSX.Element => {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="relative flex flex-col gap-4 items-center justify-center w-full h-full px-6 sm:px-10 md:px-0 lg:px-0"
+          className="relative flex flex-col gap-4 items-center justify-center w-full h-full"
         >
-          <h2 className="relative text-lg md:text-4xl text-black mix-blend-normal dark:text-white max-w-4xl text-center mx-auto font-bold">
-            Languages & Tools
-          </h2>
           <div className="mt-4">
             <ProgrammingIconsRibbon direction="left" speed="normal">
               <Icons.Java {...iconProps} />

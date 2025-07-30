@@ -2,11 +2,12 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Timeline } from "@/components/ui/education-timeline";
+import { Timeline } from "@/components/ui/timeline";
 import { cn } from "@/lib/utils";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { JSX } from "react/jsx-runtime";
 import { motion } from "framer-motion";
+import SectionTitle from "./ui/section-title";
 
 export function Education() {
   const [showCarousel, setShowCarousel] = useState(false);
@@ -103,6 +104,7 @@ export function Education() {
 
   return (
     <div className="relative w-full mt-12 md:mt-14 lg:mt-20">
+      <SectionTitle title="My Education" />
       <motion.div
         initial={{ opacity: 0.0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

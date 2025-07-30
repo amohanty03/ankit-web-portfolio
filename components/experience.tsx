@@ -2,13 +2,61 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Timeline } from "@/components/ui/experience-timeline";
+import { Timeline } from "@/components/ui/timeline";
 import { cn } from "@/lib/utils";
 import { JSX } from "react/jsx-runtime";
 import { motion } from "framer-motion";
+import { Section } from "lucide-react";
+import SectionTitle from "./ui/section-title";
 
 export function Experience() {
   const timelineData = [
+    {
+      title: "June 2025 - Present",
+      content: (
+        <div className="w-full group/card">
+          <div
+            className={cn(
+              "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl mx-auto flex flex-col justify-between p-4",
+              "bg-[url('/tamu.jpg')] bg-cover bg-center",
+            )}
+          >
+            <div className="absolute inset-0 bg-black/60 transition duration-300 group-hover/card:bg-black/80" />
+            <div className="flex items-center space-x-4 z-10">
+              <Image
+                height={100}
+                width={100}
+                alt="TAMU"
+                src="/tamulogo.png"
+                className="h-10 w-10 rounded-full border-2 object-cover"
+              />
+              <div className="flex flex-col">
+                <p className="text-base text-gray-50 relative z-10">
+                  Student Assistant
+                </p>
+                <p className="text-sm text-gray-50">
+                  Texas A&M University - Texas Engineering and Experiment
+                  Station | College Station, Texas
+                </p>
+              </div>
+            </div>
+            <div className="text content z-10">
+              <h1 className="font-bold text-sm md:text-sm lg:text-md text-gray-50">
+                Responsibilities:
+              </h1>
+              <ul className="text-sm text-gray-50 text-justify">
+                <li>
+                  Spearheading design and development of a full-featured,
+                  responsive website from scratch using HTML, CSS, and
+                  JavaScript to support the Industry & Nonprofit Partnerships
+                  initiative.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      ),
+    },
     {
       title: "May 2025 - Present",
       content: (
@@ -167,6 +215,7 @@ export function Experience() {
 
   return (
     <div className="relative w-full mt-12 md:mt-14 lg:mt-20">
+      <SectionTitle title="My Experience" />
       <motion.div
         initial={{ opacity: 0.0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}

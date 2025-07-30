@@ -16,9 +16,10 @@ import {
 import Image from "next/image";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import MagicButton from "@/components/ui/magic-button";
-import { Timeline } from "@/components/ui/education-timeline";
+import { Timeline } from "@/components/ui/timeline";
 import { Education } from "@/components/education";
 import { Experience } from "@/components/experience";
+import { Projects } from "@/components/projects";
 import { AuroraBackground } from "@/components/ui/aurora-background";
 import ProgrammingIconsRibbonStack from "@/components/programming-languages";
 
@@ -32,7 +33,8 @@ export default function Home() {
           <ProgrammingIconsRibbonStack />
           <Education />
           <Experience />
-          <div className="h-36 w-full"></div> {/* Spacer before FloatingDock */}
+          <Projects />
+          <div className="h-36 w-full"></div>
           <div className="fixed bottom-5 left-0 flex items-center justify-center w-full z-50">
             <FloatingDock
               items={[
@@ -64,13 +66,13 @@ export default function Home() {
                   ),
                   href: "/projects",
                 },
-                {
-                  title: "Write to me!",
-                  icon: (
-                    <FaRegEnvelope className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-                  ),
-                  href: "/contact",
-                },
+                // {
+                //   title: "Write to me!",
+                //   icon: (
+                //     <FaRegEnvelope className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+                //   ),
+                //   href: "/contact",
+                // },
                 // { title: "LinkedIn", icon: <FaLinkedinIn className="h-full w-full text-neutral-500 dark:text-neutral-300" />, href: "https://www.linkedin.com/in/mohanty-ankit/" },
                 // { title: "GitHub", icon: <FaGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />, href: "https://github.com/amohanty03" }
               ]}
