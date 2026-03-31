@@ -22,67 +22,34 @@ import { Experience } from "@/components/experience";
 import { Projects } from "@/components/projects";
 import ProgrammingIconsRibbonStack from "@/components/programming-languages";
 import { Boxes } from "@/components/ui/background-boxes";
+import { Navbar } from "@/components/navbar";
 
 export default function Home() {
   return (
-    <main className="relative isolate bg-black flex justify-center items-center flex-col overflow-hidden mx-auto min-h-screen">
+    <main className="relative isolate bg-black flex justify-center items-center flex-col overflow-hidden mx-auto min-h-screen pt-20">
+      <Navbar />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <div className="fixed inset-0 w-screen h-screen overflow-hidden z-10">
         <div className="absolute inset-0 w-full h-full bg-black z-0 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
         <Boxes className="z-40 pointer-events-auto" />
       </div>
       <div className="relative z-20 items-center justify-center w-full pointer-events-none">
-        <div className="pointer-events-auto">
+        <div id="about" className="pointer-events-auto">
           <Hero />
         </div>
-        <ProgrammingIconsRibbonStack />
-        <Education />
-        <Experience />
-        <Projects />
-        <div className="h-36 w-full"></div>
-        <div className="fixed bottom-5 left-0 flex items-center justify-center w-full z-50 pointer-events-auto">
-          <FloatingDock
-            items={[
-              {
-                title: "Home",
-                icon: (
-                  <FaHouse className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-                ),
-                href: "/",
-              },
-              {
-                title: "My Education",
-                icon: (
-                  <FaBook className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-                ),
-                href: "/education",
-              },
-              {
-                title: "My Experience",
-                icon: (
-                  <FaBriefcase className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-                ),
-                href: "/experience",
-              },
-              {
-                title: "Projects",
-                icon: (
-                  <FaLaptopCode className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-                ),
-                href: "/projects",
-              },
-              {
-                title: "Write to me!",
-                icon: (
-                  <FaRegEnvelope className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-                ),
-                href: "/contact",
-              },
-              // { title: "LinkedIn", icon: <FaLinkedinIn className="h-full w-full text-neutral-500 dark:text-neutral-300" />, href: "https://www.linkedin.com/in/mohanty-ankit/" },
-              // { title: "GitHub", icon: <FaGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />, href: "https://github.com/amohanty03" }
-            ]}
-          />
+        <div id="skills" className="pointer-events-auto">
+          <ProgrammingIconsRibbonStack />
         </div>
+        <div id="education" className="pointer-events-auto">
+          <Education />
+        </div>
+        <div id="experience" className="pointer-events-auto">
+          <Experience />
+        </div>
+        <div id="projects" className="pointer-events-auto">
+          <Projects />
+        </div>
+        <div className="h-36 w-full"></div>
       </div>
     </main>
   );

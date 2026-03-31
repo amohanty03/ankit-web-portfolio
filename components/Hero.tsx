@@ -3,10 +3,15 @@
 import { motion } from "framer-motion";
 import React from "react";
 import Typewriter from "typewriter-effect";
-import { AuroraBackground } from "./ui/aurora-background";
 import MagicButton from "./ui/magic-button";
 import { FaFileCode, FaRegFileCode, FaLaptopCode } from "react-icons/fa";
-import { FaRegFilePdf } from "react-icons/fa6";
+import {
+  FaRegFilePdf,
+  FaGithub,
+  FaLinkedinIn,
+  FaRegEnvelope,
+} from "react-icons/fa6";
+import { Terminal } from "./ui/terminal";
 
 const Hero = () => {
   function rotate(deg: number) {
@@ -16,7 +21,7 @@ const Hero = () => {
   }
 
   return (
-    <div className="relative">
+    <div className="relative w-full min-h-[calc(100vh-5rem)] flex items-center">
       <motion.div
         initial={{ opacity: 0.0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -25,7 +30,7 @@ const Hero = () => {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="relative flex flex-col gap-4 items-center justify-center w-full h-full px-6 sm:px-10 md:px-0 lg:px-0"
+        className="relative flex flex-col gap-4 items-center justify-center w-full min-h-[calc(100vh-5rem)] px-6 sm:px-10 md:px-0 lg:px-0"
       >
         <div className="fixed bottom-0 left-0 bg-black text-white text-xs p-1 z-50">
           <div className="block sm:hidden">Base (&lt;640px)</div>
@@ -35,16 +40,7 @@ const Hero = () => {
           <div className="hidden xl:block">xl (1280px+)</div>
         </div>
 
-        <div className="absolute top-0 left-0 w-full flex justify-start">
-          <img
-            src="logo.jpg"
-            alt="AM Logo"
-            className="ml-4 mt-4 w-12 sm:w-16 md:w-20 lg:w-24 max-w-[75px] h-auto"
-            style={{ mixBlendMode: "difference" }}
-          />
-        </div>
-
-        <div
+        {/* <div
           className="relative rounded-full overflow-hidden border-4 shadow-md border-x-red-700 border-y-orange-600 
                w-48 sm:w-64 md:w-72 lg:w-[250px] aspect-[4/5] max-w-[300px] mt-20 sm:mt-10 md:mt-20 lg:mt-20"
         >
@@ -57,9 +53,9 @@ const Hero = () => {
               src="profile.jpg"
             />
           </div>
-        </div>
+        </div> */}
 
-        <div className="text-xl sm:text-3xl md:text-6xl font-bold text-white text-center sm:mt-10 md:mt-5 lg:mt-5 sm:px-10 md:px-3 lg:px-0">
+        {/* <div className="text-xl sm:text-3xl md:text-6xl font-bold text-white text-center sm:mt-10 md:mt-5 lg:mt-5 sm:px-10 md:px-3 lg:px-0">
           <style>{`
               @keyframes wave {
                 0% { transform: rotate(0deg); }
@@ -78,8 +74,8 @@ const Hero = () => {
                 display: inline-block;
               }
             `}</style>
-          <div style={{ display: "inline-flex", alignItems: "center" }}>
-            <Typewriter
+          <div style={{ display: "inline-flex", alignItems: "center" }}> */}
+        {/* <Typewriter
               onInit={(typewriter) => {
                 const cursor = document.querySelector(
                   ".Typewriter__cursor",
@@ -108,8 +104,8 @@ const Hero = () => {
                 loop: false,
                 delay: 60,
               }}
-            />
-            {/* <motion.img
+            /> */}
+        {/* <motion.img
                 src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/1f44b.png"
                 alt="Waving Hand"
                 className="wave-emoji w-6 sm:w-6 md:w-8 lg:w-10 xl:w-12 h-auto"
@@ -117,49 +113,107 @@ const Hero = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.15, duration: 1.0 }}
               /> */}
-          </div>
-        </div>
+        {/* </div> */}
+        {/* </div> */}
 
-        <div className="sm:text-xs md:text-lg lg:text-xl text-white text-justify sm:mt-10 md:mt-5 lg:mt-5 sm:px-10 md:px-10 lg:px-28">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2.75, duration: 1.0 }}
-          >
-            As a Master’s student in Computer Science at Texas A&M, I bring a
-            strong foundation in software engineering and a track record of
-            delivering impactful solutions across full-stack development,
-            distributed systems, and AI-driven applications. I’ve led technical
-            projects that streamline workflows, enhance user experiences, and
-            solve real-world problems whether it’s building scalable web
-            platforms or deploying intelligent backend systems. What sets me
-            apart is a learn-it-all mindset: I thrive in collaborative,
-            team-oriented environments, adapt quickly to new technologies, and
-            approach every challenge with curiosity, ownership, and a drive to
-            build better.
-          </motion.div>
+        <div className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center min-h-[600px] px-4 py-6">
+          <Terminal
+            commands={[
+              "npx ankit-portfolio@latest whoami",
+              "whoami",
+              "cat experience.txt",
+              "npx shadcn@latest add button card",
+              "Term Deez Nuts",
+            ]}
+            outputs={{
+              0: [
+                `##########################++-------+##########################
+######################++------------++########################
+###################+++-----------------+######################
+##################+-------+##++++###+++-++####################
+##################--------+############+++++##################
+##################----+++-+############++++++#################
+#################+----+++++#############+++-++################
+##################---+++---+++##++++++++++++++################
+#################+---+++++---+++++-++++++--+++################
+##################---++-+--+-+##++++-++##+--++################
+##################+-+++++++++#####++++###++++#################
+##################+++#####################+###################
+##################+++++####++-++++#######++###################
+###################++++++++++++++++#######+###################
+####################+++++--++++++++++#########################
+###################+-+++++++++++++#+++++++####################
+####################+-++++++++++++++++++++####################
+#####################++-----+++++++++++++#####################
+######################++----------+++++#######################
+#####################+++++--------++++########################
+#####################+++++++++++++++++++######################
+######################++++++++++++++++++######################`,
+              ],
+              1: [
+                "Hello there! I'm Ankit Mohanty. I'm a Master's student in Computer Science at Texas A&M University. I’ve led technical projects that streamline workflows, enhance user experiences, and solve real-world problems whether it’s building scalable web platforms or deploying intelligent backend systems. I am currently seeking full-time New Grad Software Engineer opportunities.",
+              ],
+              2: [
+                "Student Developer @ Texas A&M Engineering Experiment Station | June 2025 - Present",
+                "Graduate Research Assistant @ Texas A&M University | May 2025 - August 2025",
+                "Software Engineer Intern @ DRS Daylight Solutions | May 2023 - August 2023",
+              ],
+              3: ["✔ Done. Installed button, card."],
+            }}
+            typingSpeed={45}
+            delayBetweenCommands={1000}
+          />
         </div>
-        <div className="flex justify-center">
-          <div className="flex px-2">
-            <a href="#about">
-              <MagicButton
-                title="See my work"
-                icon={<FaRegFileCode />}
-                position="right"
-              />
-            </a>
+        <div className="mt-4 w-full flex flex-col items-center">
+          <div className="w-full flex justify-center items-center">
+            <div className="flex px-2">
+              <a href="#projects">
+                <MagicButton
+                  title="See my work"
+                  icon={<FaRegFileCode />}
+                  position="right"
+                />
+              </a>
+            </div>
+            <div className="flex px-2">
+              <a
+                href="https://drive.google.com/file/d/1wxFKkm2C4UR7U2Y__uSs4tN4QVr_47dQ/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MagicButton
+                  title="Get my résumé"
+                  icon={<FaRegFilePdf />}
+                  position="right"
+                />
+              </a>
+            </div>
           </div>
-          <div className="flex px-2">
+          <div className="mt-6 flex items-center justify-center gap-6 px-10 text-white">
             <a
-              href="https://drive.google.com/file/d/1wxFKkm2C4UR7U2Y__uSs4tN4QVr_47dQ/view?usp=sharing"
+              href="https://github.com/amohanty03"
               target="_blank"
               rel="noopener noreferrer"
+              className="hover:text-orange-300 transition-colors"
+              aria-label="GitHub"
             >
-              <MagicButton
-                title="Get my résumé"
-                icon={<FaRegFilePdf />}
-                position="right"
-              />
+              <FaGithub className="h-5 w-5" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/mohanty-ankit/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-orange-300 transition-colors"
+              aria-label="LinkedIn"
+            >
+              <FaLinkedinIn className="h-5 w-5" />
+            </a>
+            <a
+              href="mailto:"
+              className="hover:text-orange-300 transition-colors"
+              aria-label="Email"
+            >
+              <FaRegEnvelope className="h-5 w-5" />
             </a>
           </div>
         </div>
