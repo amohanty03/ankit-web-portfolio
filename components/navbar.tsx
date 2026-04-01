@@ -43,6 +43,7 @@ export function Navbar() {
     { label: "EDUCATION", href: "#education" },
     { label: "EXPERIENCE", href: "#experience" },
     { label: "PROJECTS", href: "#projects" },
+    { label: "CONTACT ME", href: "#contact" },
   ];
 
   return (
@@ -77,7 +78,7 @@ export function Navbar() {
         {mounted && (
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-lg bg-neutral-900 hover:bg-neutral-800 transition-colors duration-200 text-neutral-400 hover:text-white"
+            className="p-2 rounded-lg bg-transparent hover:bg-translucent transition-colors duration-200 text-neutral-400 hover:text-white"
             aria-label="Toggle theme"
           >
             {isDark ? <Sun size={20} /> : <Moon size={20} />}

@@ -10,7 +10,7 @@ export function Projects() {
   return (
     <div className="relative w-full mt-12 md:mt-14 lg:mt-20">
       <SectionTitle title="My Projects" />
-      <BentoGrid className="max-w-4xl mx-4 md:mx-12 xl:mx-auto md:auto-rows-[20rem]">
+      <BentoGrid className="max-w-7xl mx-4 md:mx-12 xl:mx-auto md:auto-rows-[20rem]">
         {items.map((item, i) => (
           <BentoGridItem
             key={i}

@@ -34,19 +34,19 @@ export default function Home() {
         <Boxes className="z-40 pointer-events-auto" />
       </div>
       <div className="relative z-20 items-center justify-center w-full pointer-events-none">
-        <div id="about" className="pointer-events-auto">
+        <div id="about" className="pointer-events-auto scroll-mt-28">
           <Hero />
         </div>
-        <div id="skills" className="pointer-events-auto">
+        <div id="skills" className="pointer-events-auto scroll-mt-28">
           <ProgrammingIconsRibbonStack />
         </div>
-        <div id="education" className="pointer-events-auto">
+        <div id="education" className="pointer-events-auto scroll-mt-28">
           <Education />
         </div>
-        <div id="experience" className="pointer-events-auto">
+        <div id="experience" className="pointer-events-auto scroll-mt-28">
           <Experience />
         </div>
-        <div id="projects" className="pointer-events-auto">
+        <div id="projects" className="pointer-events-auto scroll-mt-28">
           <Projects />
         </div>
         <div className="h-36 w-full"></div>
