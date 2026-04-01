@@ -270,14 +270,26 @@ function SyntaxHighlightedText({ text }: { text: string }) {
   );
 }
 
-interface TerminalLine {
-  type: "command" | "output";
-  content: string;
-}
+export type TerminalOutput =
+  | string
+  | {
+      left: string;
+      right: string;
+    };
+
+type TerminalLine =
+  | {
+      type: "command";
+      content: string;
+    }
+  | {
+      type: "output";
+      content: TerminalOutput;
+    };
 
 export interface TerminalProps {
   commands: string[];
-  outputs?: Record<number, string[]>;
+  outputs?: Record<number, TerminalOutput[]>;
   username?: string;
   className?: string;
   typingSpeed?: number;
@@ -424,13 +436,13 @@ export function Terminal({
     <div
       ref={containerRef}
       className={cn(
-        "mx-auto w-full max-w-7xl px-4 font-mono text-xs",
+        "mx-auto w-full max-w-6xl px-2 font-mono text-xs sm:px-4",
         className,
       )}
     >
-      <div className="overflow-hidden rounded-lg border border-neutral-800 bg-neutral-900 shadow-2xl">
+      <div className="overflow-hidden rounded-xl bg-black/[0.1] shadow-2xl">
         {/* Title Bar */}
-        <div className="flex items-center gap-2 bg-neutral-800 px-4 py-3">
+        <div className="flex items-center gap-2 bg-black px-4 py-3">
           <div className="flex items-center gap-1.5">
             <div className="h-3 w-3 rounded-full bg-red-500 transition-colors hover:bg-red-600" />
             <div className="h-3 w-3 rounded-full bg-yellow-500 transition-colors hover:bg-yellow-600" />
@@ -447,7 +459,7 @@ export function Terminal({
         {/* Terminal Content */}
         <div
           ref={contentRef}
-          className="no-visible-scrollbar h-[600px] overflow-y-auto overflow-x-hidden p-4 font-mono break-words"
+          className="no-visible-scrollbar h-[420px] overflow-y-auto overflow-x-hidden bg-white/[0.05] p-4 font-mono break-words sm:h-[470px] md:h-[520px]"
         >
           {lines.map((line, i) => (
             <div key={i} className="leading-relaxed whitespace-pre-wrap">
@@ -457,7 +469,20 @@ export function Terminal({
                   <SyntaxHighlightedText text={line.content} />
                 </span>
               ) : (
-                <span className="text-neutral-400">{line.content}</span>
+                <>
+                  {typeof line.content === "string" ? (
+                    <span className="text-neutral-300">{line.content}</span>
+                  ) : (
+                    <div className="grid gap-3 lg:grid-cols-[auto_minmax(0,1fr)] lg:gap-6">
+                      <pre className="m-0 overflow-x-auto whitespace-pre text-[10px] leading-tight text-neutral-300 sm:text-xs">
+                        {line.content.left}
+                      </pre>
+                      <div className="whitespace-pre-wrap text-neutral-300 lg:self-center">
+                        {line.content.right}
+                      </div>
+                    </div>
+                  )}
+                </>
               )}
             </div>
           ))}

@@ -30,7 +30,7 @@ export default function Home() {
       <Navbar />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <div className="fixed inset-0 w-screen h-screen overflow-hidden z-10">
-        <div className="absolute inset-0 w-full h-full bg-black z-0 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-orange-500/12 via-transparent to-cyan-400/12 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
         <Boxes className="z-40 pointer-events-auto" />
       </div>
       <div className="relative z-20 items-center justify-center w-full pointer-events-none">
