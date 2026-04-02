@@ -1,40 +1,46 @@
 "use client";
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "motion/react";
-import { cn } from "@/lib/utils";
+
+const DARK_COLORS = [
+  "#fca5a5",
+  "#f87171",
+  "#ef4444",
+  "#dc2626",
+  "#fb923c",
+  "#f97316",
+  "#ea580c",
+  "#fdba74",
+  "#fed7aa",
+];
 
 export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
-  const rows = new Array(150).fill(1);
-  const cols = new Array(100).fill(1);
-  let colors = [
-    "#fca5a5",
-    "#f87171",
-    "#ef4444",
-    "#dc2626",
-    "#fb923c",
-    "#f97316",
-    "#ea580c",
-    "#fdba74",
-    "#fed7aa",
-  ];
+  const ROWS = useMemo(() => new Array(150).fill(1), []);
+  const COLS = useMemo(() => new Array(100).fill(1), []);
+
   const getRandomColor = () => {
-    return colors[Math.floor(Math.random() * colors.length)];
+    return DARK_COLORS[Math.floor(Math.random() * DARK_COLORS.length)];
   };
+
+  const boxesStyle = useMemo(
+    () => ({
+      transform: `translate(-40%,-60%) skewX(-48deg) skewY(14deg) scale(0.675) rotate(0deg) translateZ(0)`,
+    }),
+    [],
+  );
 
   return (
     <div
-      style={{
-        transform: `translate(-40%,-60%) skewX(-48deg) skewY(14deg) scale(0.675) rotate(0deg) translateZ(0)`,
-      }}
-      className={cn("absolute inset-0 z-0 flex h-full w-full p-4", className)}
+      style={boxesStyle}
+      className={`absolute inset-0 z-0 flex h-full w-full p-4 ${className || ""}`}
       {...rest}
     >
-      {rows.map((_, i) => (
+      {ROWS.map((_, i) => (
         <motion.div
           key={`row` + i}
           className="relative h-8 w-16 border-l border-orange-500/40"
         >
-          {cols.map((_, j) => (
+          {COLS.map((_, j) => (
             <motion.div
               whileHover={{
                 backgroundColor: `${getRandomColor()}`,

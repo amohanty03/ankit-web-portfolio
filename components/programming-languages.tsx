@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 import * as Icons from "@/components/programming-icons";
 import { JSX } from "react/jsx-runtime";
 import { motion } from "framer-motion";
-import { Section } from "lucide-react";
 import SectionTitle from "./ui/section-title";
 
 interface ProgrammingIconsRibbonProps {
@@ -55,7 +54,7 @@ export const ProgrammingIconsRibbon = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20 max-w-7xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller relative z-20 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
         slowOnHover &&
           "translate-x-0 [transition:calc(var(--animation-duration)_*_.1)_ease-out]",
         slowOnHover &&
@@ -104,9 +103,9 @@ const ProgrammingIconsRibbonStack = (): JSX.Element => {
             duration: 0.8,
             ease: "easeInOut",
           }}
-          className="relative flex flex-col gap-4 items-center justify-center w-full h-full"
+          className="relative mx-auto flex h-full w-full max-w-5xl flex-col items-center justify-center gap-4"
         >
-          <div className="mt-4">
+          <div className="mt-4 w-full">
             <ProgrammingIconsRibbon direction="left" speed="normal">
               <Icons.Java {...iconProps} />
               <Icons.Python {...iconProps} />

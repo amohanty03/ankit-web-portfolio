@@ -224,9 +224,11 @@ export function Experience() {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="relative flex flex-col gap-4 items-center justify-center w-full h-full px-6 sm:px-10 md:px-0 lg:px-0"
+        className="relative mx-auto flex h-full w-full max-w-6xl flex-col items-center justify-center gap-4 px-6 sm:px-10 md:px-0 lg:px-0"
       >
-        <Timeline data={timelineData} />
+        <div className="w-full">
+          <Timeline data={timelineData} />
+        </div>
       </motion.div>
     </div>
   );

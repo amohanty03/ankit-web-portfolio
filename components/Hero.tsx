@@ -1,11 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MagicButton from "./ui/magic-button";
 import { FaRegFileCode } from "react-icons/fa";
 import {
   FaArrowRight,
+  FaAnglesDown,
   FaRegFilePdf,
   FaGithub,
   FaLinkedinIn,
@@ -14,6 +15,18 @@ import {
 import { Terminal } from "./ui/terminal";
 
 const Hero = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 80);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="relative flex w-full min-h-[calc(100vh-5rem)] items-center">
       <motion.div
@@ -24,8 +37,15 @@ const Hero = () => {
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="relative flex w-full min-h-[calc(100vh-5rem)] flex-col items-center justify-center gap-8 px-4 py-8 sm:px-6 md:px-8 lg:px-10"
+        className="relative flex w-full min-h-[calc(100vh-5rem)] flex-col items-center justify-start gap-6 px-2 pt-2 sm:px-4 sm:pt-4 md:px-6 md:pt-6 lg:px-8"
       >
+        <div className="fixed bottom-0 left-0 bg-black text-white text-xs p-1 z-50">
+          <div className="block sm:hidden">Base (&lt;640px)</div>
+          <div className="hidden sm:block md:hidden">sm (640px–767px)</div>
+          <div className="hidden md:block lg:hidden">md (768px–1023px)</div>
+          <div className="hidden lg:block xl:hidden">lg (1024px–1279px)</div>
+          <div className="hidden xl:block">xl (1280px+)</div>
+        </div>
         {/* <div
           className="relative rounded-full overflow-hidden border-4 shadow-md border-x-red-700 border-y-orange-600 
                w-48 sm:w-64 md:w-72 lg:w-[250px] aspect-[4/5] max-w-[300px] mt-20 sm:mt-10 md:mt-20 lg:mt-20"
@@ -102,9 +122,21 @@ const Hero = () => {
         {/* </div> */}
         {/* </div> */}
 
-        <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-center px-0 py-2 sm:px-2">
+        <div className="flex w-full justify-center">
+          <div className="flex w-full max-w-4xl flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <div className="inline-flex items-center gap-3 rounded-full border dark:border-amber-200/30 border-amber-900/30 bg-amber-50/5 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.2em] dark:text-amber-300 text-amber-900 sm:text-xs">
+              <span className="h-2 w-2 rounded-full dark:bg-amber-300 bg-amber-900" />
+              College Station, TX
+            </div>
+            <div className="inline-flex items-center gap-3 rounded-full border dark:border-emerald-300/40 border-emerald-900/40  bg-emerald-50/5 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.2em] dark:text-emerald-300 text-emerald-900 sm:text-xs">
+              <span className="h-2 w-2 rounded-full dark:bg-emerald-400 bg-emerald-900" />
+              Open to New Grad Roles
+            </div>
+          </div>
+        </div>
+        <div className="mx-auto mt-5 flex w-full max-w-5xl flex-col items-center justify-center px-0 py-0 sm:px-2">
           <Terminal
-            className="max-w-4xl"
+            className="max-w-5xl"
             commands={[
               "npx ankit-portfolio@latest whoami",
               "cat interests.txt",
@@ -148,7 +180,7 @@ const Hero = () => {
             delayBetweenCommands={1000}
           />
         </div>
-        <div className="mt-2 flex w-full justify-center">
+        <div className="mt-5 flex w-full justify-center">
           <div className="flex w-full max-w-6xl flex-wrap items-center justify-center gap-4 text-white">
             <div className="flex px-2">
               <a href="#projects">
@@ -173,13 +205,15 @@ const Hero = () => {
               </a>
             </div>
             <div className="flex items-center justify-center gap-4 px-2 text-sm sm:text-base">
-              <span className="text-neutral-300">Connect with me</span>
-              <FaArrowRight className="h-4 w-4 text-neutral-400" />
+              <span className="dark:text-neutral-300 text-black">
+                Connect with me
+              </span>
+              <FaArrowRight className="h-4 w-4 dark:text-neutral-400 text-black" />
               <a
                 href="https://github.com/amohanty03"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-violet-300 transition-colors"
+                className="dark:hover:text-violet-300 hover:text-violet-500 dark:text-white text-black transition-colors"
                 aria-label="GitHub"
               >
                 <FaGithub className="h-5 w-5" />
@@ -188,14 +222,14 @@ const Hero = () => {
                 href="https://www.linkedin.com/in/mohanty-ankit/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-blue-300 transition-colors"
+                className="dark:hover:text-blue-300 hover:text-blue-500 dark:text-white text-black transition-colors"
                 aria-label="LinkedIn"
               >
                 <FaLinkedinIn className="h-5 w-5" />
               </a>
               <a
                 href="mailto:"
-                className="hover:text-orange-300 transition-colors"
+                className="dark:hover:text-orange-300 hover:text-orange-500 dark:text-white text-black transition-colors"
                 aria-label="Email"
               >
                 <FaRegEnvelope className="h-5 w-5" />
@@ -203,6 +237,27 @@ const Hero = () => {
             </div>
           </div>
         </div>
+        <motion.div
+          aria-hidden="true"
+          animate={{
+            opacity: isScrolled ? 0 : 1,
+            y: isScrolled ? -10 : 0,
+            scale: isScrolled ? 0.96 : 1,
+          }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="mt-auto mb-4 inline-flex flex-col items-center gap-2 dark:text-neutral-300 text-neutral-700 pointer-events-none"
+        >
+          <span className="text-[10px] font-medium uppercase tracking-[0.22em] sm:text-xs">
+            Scroll Down
+          </span>
+          <motion.span
+            animate={{ y: [0, 8, 0], opacity: [0.55, 1, 0.55] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="flex h-9 w-9 items-center justify-center rounded-full"
+          >
+            <FaAnglesDown className="h-4 w-4" />
+          </motion.span>
+        </motion.div>
       </motion.div>
     </div>
   );

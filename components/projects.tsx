@@ -10,36 +10,38 @@ export function Projects() {
   return (
     <div className="relative w-full mt-12 md:mt-14 lg:mt-20">
       <SectionTitle title="My Projects" />
-      <BentoGrid className="max-w-7xl mx-4 md:mx-12 xl:mx-auto md:auto-rows-[20rem]">
-        {items.map((item, i) => (
-          <BentoGridItem
-            key={i}
-            title={item.title}
-            description={item.description}
-            className={item.className}
-            icons={item.icons.map((iconObj, idx) => (
-              <a
-                key={idx}
-                href={iconObj.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={cn(
-                  "transition-colors duration-200 text-neutral-400 hover:text-blue-500",
-                  iconObj.url.includes("youtu.be")
-                    ? "hover:text-red-600"
-                    : iconObj.url.includes("google")
-                      ? "hover:text-yellow-500"
-                      : "",
-                )}
-              >
-                {iconObj.icon}
-              </a>
-            ))}
-            picture={item.picture}
-            pictureClassName={item.pictureClassName}
-          />
-        ))}
-      </BentoGrid>
+      <div className="mx-auto w-full max-w-5xl px-6 sm:px-10 md:px-0 lg:px-0">
+        <BentoGrid className="w-full max-w-5xl md:auto-rows-[20rem]">
+          {items.map((item, i) => (
+            <BentoGridItem
+              key={i}
+              title={item.title}
+              description={item.description}
+              className={item.className}
+              icons={item.icons.map((iconObj, idx) => (
+                <a
+                  key={idx}
+                  href={iconObj.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    "transition-colors duration-200 text-neutral-400 hover:text-blue-500",
+                    iconObj.url.includes("youtu.be")
+                      ? "hover:text-red-600"
+                      : iconObj.url.includes("google")
+                        ? "hover:text-yellow-500"
+                        : "",
+                  )}
+                >
+                  {iconObj.icon}
+                </a>
+              ))}
+              picture={item.picture}
+              pictureClassName={item.pictureClassName}
+            />
+          ))}
+        </BentoGrid>
+      </div>
     </div>
   );
 }

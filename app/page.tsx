@@ -26,7 +26,7 @@ import { Navbar } from "@/components/navbar";
 
 export default function Home() {
   return (
-    <main className="relative isolate bg-black flex justify-center items-center flex-col overflow-hidden mx-auto min-h-screen pt-20">
+    <main className="relative isolate bg-white dark:bg-black flex justify-center items-center flex-col overflow-hidden mx-auto min-h-screen pt-20">
       <Navbar />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <div className="fixed inset-0 w-screen h-screen overflow-hidden z-10">

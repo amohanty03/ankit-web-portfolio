@@ -38,12 +38,12 @@ export function Navbar() {
   };
 
   const navItems = [
-    { label: "ABOUT", href: "#about" },
-    { label: "SKILLS", href: "#skills" },
-    { label: "EDUCATION", href: "#education" },
-    { label: "EXPERIENCE", href: "#experience" },
-    { label: "PROJECTS", href: "#projects" },
-    { label: "CONTACT ME", href: "#contact" },
+    { label: "about/", href: "#about" },
+    { label: "skills/", href: "#skills" },
+    { label: "education/", href: "#education" },
+    { label: "experience/", href: "#experience" },
+    { label: "projects/", href: "#projects" },
+    { label: "contact/", href: "#contact" },
   ];
 
   return (
@@ -53,7 +53,7 @@ export function Navbar() {
         scrolled ? "bg-black/60 backdrop-blur-md" : "bg-transparent",
       )}
     >
-      <div className="mx-auto w-full max-w-7xl px-4 py-4 flex items-center justify-between">
+      <div className="mx-auto w-full max-w-5xl px-4 py-4 flex items-center justify-between">
         {/* Logo/Brand */}
         <img
           src="logo.png"
@@ -67,7 +67,7 @@ export function Navbar() {
             <a
               key={item.href}
               href={item.href}
-              className="text-neutral-400 hover:text-white transition-colors duration-200 text-sm"
+              className="dark:text-neutral-400 text-black hover:text-red-500 dark:hover:text-white transition-colors duration-200 text-sm"
             >
               {item.label}
             </a>
