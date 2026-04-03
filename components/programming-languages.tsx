@@ -115,7 +115,7 @@ const ProgrammingIconsRibbonStack = () => {
                 ease: "easeOut",
               }}
               className={cn(
-                "group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.18)] backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 dark:bg-black/30",
+                "group relative overflow-hidden rounded-3xl border border-black/10 bg-white/70 p-5 shadow-[0_14px_35px_rgba(0,0,0,0.08)] backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 dark:border-white/10 dark:bg-black/30 dark:shadow-[0_18px_60px_rgba(0,0,0,0.18)]",
                 index === categories.length - 1
                   ? "md:col-span-2 xl:col-span-1"
                   : "",
@@ -123,14 +123,14 @@ const ProgrammingIconsRibbonStack = () => {
             >
               <div
                 className={cn(
-                  "absolute inset-0 bg-gradient-to-br opacity-100",
+                  "absolute inset-0 bg-gradient-to-br opacity-70 dark:opacity-100",
                   category.accent,
                 )}
               />
               <div className="relative z-10">
                 <div className="flex items-center justify-between gap-3">
                   <div>
-                    <h3 className="mt-2 text-xl font-semibold text-white sm:text-2xl">
+                    <h3 className="mt-2 text-xl font-semibold text-neutral-900 dark:text-white sm:text-2xl">
                       {category.title}
                     </h3>
                   </div>
@@ -140,14 +140,14 @@ const ProgrammingIconsRibbonStack = () => {
                   {category.chips.map((chip) => (
                     <span
                       key={chip.label}
-                      className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/25 px-3 py-2 text-xs font-medium text-neutral-200 transition-colors duration-200 hover:border-white/20 hover:bg-black/35"
+                      className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/75 px-3 py-2 text-xs font-medium text-neutral-800 transition-colors duration-200 hover:border-black/20 hover:bg-white/95 dark:border-white/10 dark:bg-black/25 dark:text-neutral-200 dark:hover:border-white/20 dark:hover:bg-black/35"
                     >
                       {chip.icon ? (
-                        <span className="flex h-5 w-5 items-center justify-center text-white/90">
+                        <span className="flex h-5 w-5 items-center justify-center text-neutral-900 dark:text-white/90">
                           {chip.icon}
                         </span>
                       ) : (
-                        <span className="h-2 w-2 rounded-full bg-orange-400" />
+                        <span className="h-2 w-2 rounded-full bg-orange-500 dark:bg-orange-400" />
                       )}
                       <span className="whitespace-nowrap">{chip.label}</span>
                     </span>
