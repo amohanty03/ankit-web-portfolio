@@ -1,154 +1,161 @@
-// ProgrammingIconsRibbon.tsx
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { cn } from "@/lib/utils";
 import * as Icons from "@/components/programming-icons";
-import { JSX } from "react/jsx-runtime";
 import { motion } from "framer-motion";
 import SectionTitle from "./ui/section-title";
 
-interface ProgrammingIconsRibbonProps {
-  direction?: "left" | "right";
-  speed?: "fast" | "normal" | "slow";
-  slowOnHover?: boolean;
-  className?: string;
-  children?: React.ReactNode;
-}
-
-export const ProgrammingIconsRibbon = ({
-  direction = "left",
-  speed = "fast",
-  slowOnHover = true,
-  className,
-  children,
-}: ProgrammingIconsRibbonProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const scrollerRef = useRef<HTMLUListElement>(null);
-  const [start, setStart] = useState(false);
-
-  useEffect(() => {
-    if (containerRef.current && scrollerRef.current) {
-      // Duplicate icons for infinite scroll
-      const items = Array.from(scrollerRef.current.children);
-      items.forEach((item) => {
-        const clone = item.cloneNode(true);
-        scrollerRef.current?.appendChild(clone);
-      });
-
-      // Set direction
-      containerRef.current.style.setProperty(
-        "--animation-direction",
-        direction === "left" ? "forwards" : "reverse",
-      );
-
-      // Set speed
-      const duration =
-        speed === "fast" ? "20s" : speed === "normal" ? "40s" : "80s";
-      containerRef.current.style.setProperty("--animation-duration", duration);
-
-      setStart(true);
-    }
-  }, [direction, speed]);
-
-  return (
-    <div
-      ref={containerRef}
-      className={cn(
-        "scroller relative z-20 w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
-        slowOnHover &&
-          "translate-x-0 [transition:calc(var(--animation-duration)_*_.1)_ease-out]",
-        slowOnHover &&
-          (direction === "left"
-            ? "hover:translate-x-[7.5%]"
-            : "hover:-translate-x-[7.5%]"),
-        className,
-      )}
-    >
-      <ul
-        ref={scrollerRef}
-        key="scroller"
-        className={cn(
-          "flex min-w-full shrink-0 gap-8 py-4 w-max flex-nowrap",
-          start && "animate-scroll",
-          speed === "fast" && "animation-duration:20s",
-          speed === "normal" && "animation-duration:40s",
-          speed === "slow" && "animation-duration:80s",
-        )}
-      >
-        {children}
-      </ul>
-    </div>
-  );
+type Chip = {
+  label: string;
+  icon?: React.ReactNode;
 };
 
-const ProgrammingIconsRibbonStack = (): JSX.Element => {
-  const iconProps = {
-    height: 80,
-    width: 80,
-  };
-  const wideIconProps = {
-    height: iconProps.height,
-    width: iconProps.width * 2,
-  };
+type Category = {
+  title: string;
+  accent: string;
+  chips: Chip[];
+};
 
+const categories: Category[] = [
+  {
+    title: "Languages",
+    accent: "from-red-500/20 via-orange-500/10 to-transparent",
+    chips: [
+      { label: "Java", icon: <Icons.Java height={42} width={42} /> },
+      { label: "C++", icon: <Icons.CPlusPlus height={42} width={42} /> },
+      { label: "HTML/CSS", icon: <Icons.HTML5 height={42} width={42} /> },
+      { label: "SQL", icon: <Icons.SQL height={42} width={42} /> },
+      { label: "Python", icon: <Icons.Python height={42} width={42} /> },
+      {
+        label: "JavaScript/TypeScript",
+        icon: <Icons.TypeScript height={42} width={42} />,
+      },
+      { label: "Ruby", icon: <Icons.Ruby height={42} width={42} /> },
+    ],
+  },
+  {
+    title: "Databases and Frameworks",
+    accent: "from-cyan-500/20 via-sky-500/10 to-transparent",
+    chips: [
+      { label: "React", icon: <Icons.React height={42} width={42} /> },
+      { label: "Node.js", icon: <Icons.NodeJS height={42} width={42} /> },
+      { label: "gRPC", icon: <Icons.gRPC height={42} width={42} /> },
+      { label: "Firebase", icon: <Icons.Firebase height={42} width={42} /> },
+      { label: "SQLite", icon: <Icons.SQLite height={42} width={42} /> },
+      { label: "MySQL", icon: <Icons.MySQL height={42} width={42} /> },
+    ],
+  },
+  {
+    title: "Tools and Platforms",
+    accent: "from-emerald-500/20 via-teal-500/10 to-transparent",
+    chips: [
+      { label: "Git", icon: <Icons.Git height={42} width={42} /> },
+      { label: "Linux/UNIX", icon: <Icons.Linux height={42} width={42} /> },
+      { label: "GCP", icon: <Icons.GoogleCloud height={42} width={42} /> },
+      { label: "Power BI" },
+      {
+        label: "Android Studio",
+        icon: <Icons.AndroidStudio height={42} width={42} />,
+      },
+      {
+        label: "SQL Server Management Studio",
+        icon: <Icons.SSMS height={42} width={42} />,
+      },
+      { label: "VS Code", icon: <Icons.VScode height={42} width={42} /> },
+    ],
+  },
+  {
+    title: "ML/Data",
+    accent: "from-violet-500/20 via-fuchsia-500/10 to-transparent",
+    chips: [
+      { label: "Pandas", icon: <Icons.Pandas height={42} width={42} /> },
+      { label: "NumPy", icon: <Icons.NumPy height={42} width={42} /> },
+      {
+        label: "Matplotlib",
+        icon: <Icons.Matplotlib height={42} width={42} />,
+      },
+      { label: "PyTorch", icon: <Icons.PyTorch height={42} width={42} /> },
+      {
+        label: "Scikit-learn",
+        icon: <Icons.ScikitLearn height={42} width={42} />,
+      },
+    ],
+  },
+  {
+    title: "Focus Areas",
+    accent: "from-amber-500/20 via-yellow-500/10 to-transparent",
+    chips: [
+      { label: "Distributed Systems" },
+      { label: "Fullstack Development" },
+      { label: "Frontend Development" },
+      { label: "Databases" },
+    ],
+  },
+];
+
+const ProgrammingIconsRibbonStack = () => {
   return (
     <section id="languages-tools">
-      <div className="relative py-5 mt-12 md:mt-14 lg:mt-20 px-6 sm:px-10 md:px-0 lg:px-0">
-        <SectionTitle title="Languages & Tools" />
+      <div className="relative mt-12 px-6 py-5 sm:px-10 md:mt-14 md:px-0 lg:mt-20 lg:px-0">
+        <SectionTitle title="Technical Skills" />
         <motion.div
-          initial={{ opacity: 0.0, y: 40 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            delay: 0.3,
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          className="relative mx-auto flex h-full w-full max-w-5xl flex-col items-center justify-center gap-4"
+          transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
+          className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 pt-5"
         >
-          <div className="mt-4 w-full">
-            <ProgrammingIconsRibbon direction="left" speed="normal">
-              <Icons.Java {...iconProps} />
-              <Icons.Python {...iconProps} />
-              <Icons.CLang {...iconProps} />
-              <Icons.CPlusPlus {...iconProps} />
-              <Icons.CSharp {...iconProps} />
-              <Icons.JavaScript {...iconProps} />
-              <Icons.TypeScript {...iconProps} />
-              <Icons.SQL {...iconProps} />
-              <Icons.HTML5 {...iconProps} />
-              <Icons.CSS3 {...iconProps} />
-              <Icons.Ruby {...iconProps} />
-            </ProgrammingIconsRibbon>
-            <ProgrammingIconsRibbon direction="right" speed="slow">
-              <Icons.React {...iconProps} />
-              <Icons.NodeJS {...iconProps} />
-              <Icons.NextJS {...wideIconProps} />
-              <Icons.Tailwind {...iconProps} />
-              <Icons.Bootstrap {...iconProps} />
-              <Icons.PyTorch {...wideIconProps} />
-              <Icons.Pandas {...iconProps} />
-              <Icons.NumPy {...wideIconProps} />
-              <Icons.Firebase {...iconProps} />
-              <Icons.Rails {...iconProps} />
-              <Icons.Junit {...iconProps} />
-            </ProgrammingIconsRibbon>
-            <ProgrammingIconsRibbon direction="left" speed="normal">
-              <Icons.SQLite {...iconProps} />
-              <Icons.MySQL {...iconProps} />
-              <Icons.GoogleCloud {...iconProps} />
-              <Icons.Linux {...iconProps} />
-              <Icons.Docker {...iconProps} />
-              <Icons.Git {...iconProps} />
-              <Icons.GitHub {...iconProps} />
-              <Icons.Bash {...iconProps} />
-              <Icons.Spark {...iconProps} />
-              <Icons.AndroidStudio {...iconProps} />
-              <Icons.VS {...iconProps} />
-              <Icons.VScode {...iconProps} />
-              <Icons.SSMS {...iconProps} />
-              <Icons.Figma {...iconProps} />
-            </ProgrammingIconsRibbon>
-          </div>
+          {categories.map((category, index) => (
+            <motion.article
+              key={category.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.1 + index * 0.08,
+                duration: 0.5,
+                ease: "easeOut",
+              }}
+              className={cn(
+                "group relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.18)] backdrop-blur-xl transition-transform duration-300 hover:-translate-y-1 dark:bg-black/30",
+                index === categories.length - 1
+                  ? "md:col-span-2 xl:col-span-1"
+                  : "",
+              )}
+            >
+              <div
+                className={cn(
+                  "absolute inset-0 bg-gradient-to-br opacity-100",
+                  category.accent,
+                )}
+              />
+              <div className="relative z-10">
+                <div className="flex items-center justify-between gap-3">
+                  <div>
+                    <h3 className="mt-2 text-xl font-semibold text-white sm:text-2xl">
+                      {category.title}
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {category.chips.map((chip) => (
+                    <span
+                      key={chip.label}
+                      className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/25 px-3 py-2 text-xs font-medium text-neutral-200 transition-colors duration-200 hover:border-white/20 hover:bg-black/35"
+                    >
+                      {chip.icon ? (
+                        <span className="flex h-5 w-5 items-center justify-center text-white/90">
+                          {chip.icon}
+                        </span>
+                      ) : (
+                        <span className="h-2 w-2 rounded-full bg-orange-400" />
+                      )}
+                      <span className="whitespace-nowrap">{chip.label}</span>
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.article>
+          ))}
         </motion.div>
       </div>
     </section>

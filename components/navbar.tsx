@@ -53,21 +53,21 @@ export function Navbar() {
         scrolled ? "bg-black/60 backdrop-blur-md" : "bg-transparent",
       )}
     >
-      <div className="mx-auto w-full max-w-5xl px-4 py-4 flex items-center justify-between">
+      <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-2.5">
         {/* Logo/Brand */}
         <img
           src="logo.png"
           alt="AM Logo"
-          className="w-12 sm:w-16 md:w-20 lg:w-24 max-w-[75px] h-auto"
+          className="h-auto w-10 sm:w-12 md:w-14 lg:w-16 max-w-[64px]"
         />
 
         {/* Navigation Links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden items-center gap-6 md:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="dark:text-neutral-400 text-black hover:text-red-500 dark:hover:text-white transition-colors duration-200 text-sm"
+              className="text-sm transition-colors duration-200 dark:text-white text-black hover:text-red-500 dark:hover:text-neutral-500"
             >
               {item.label}
             </a>
@@ -78,10 +78,10 @@ export function Navbar() {
         {mounted && (
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-lg bg-transparent hover:bg-translucent transition-colors duration-200 text-neutral-400 hover:text-white"
+            className="rounded-md bg-transparent p-1.5 text-black transition-colors duration-200 hover:bg-translucent hover:text-white dark:text-white dark:hover:text-neutral-500"
             aria-label="Toggle theme"
           >
-            {isDark ? <Sun size={20} /> : <Moon size={20} />}
+            {isDark ? <Sun size={18} /> : <Moon size={18} />}
           </button>
         )}
       </div>

@@ -11,11 +11,16 @@ module.exports = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
-    "./data/**/*.{ts,tsx}"
+    "./data/**/*.{ts,tsx}",
   ],
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-geist-mono)", ...defaultTheme.fontFamily.mono],
+        mono: ["var(--font-geist-mono)", ...defaultTheme.fontFamily.mono],
+        serif: ["var(--font-geist-mono)", ...defaultTheme.fontFamily.mono],
+      },
       animation: {
         aurora: "aurora 60s linear infinite",
       },
@@ -38,7 +43,7 @@ module.exports = {
 function addVariablesForColors({ addBase, theme }: any) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val]),
   );
 
   addBase({

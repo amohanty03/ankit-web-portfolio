@@ -36,3 +36,6 @@ export { default as VS } from "./vs";
 export { default as VScode } from "./vscode";
 export { default as SSMS } from "./ssms";
 export { default as Figma } from "./figma";
+export { default as Matplotlib } from "./matplotlib";
+export { default as ScikitLearn } from "./scikit";
+export { default as gRPC } from "./grpc";
