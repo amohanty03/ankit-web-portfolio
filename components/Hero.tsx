@@ -205,10 +205,10 @@ const Hero = () => {
               </a>
             </div>
             <div className="flex items-center justify-center gap-4 px-2 text-sm sm:text-base">
-              <span className="dark:text-neutral-300 text-black">
+              <span className="dark:text-white text-black">
                 Connect with me
               </span>
-              <FaArrowRight className="h-4 w-4 dark:text-neutral-400 text-black" />
+              <FaArrowRight className="h-4 w-4 dark:text-white text-black" />
               <a
                 href="https://github.com/amohanty03"
                 target="_blank"
@@ -245,7 +245,7 @@ const Hero = () => {
             scale: isScrolled ? 0.96 : 1,
           }}
           transition={{ duration: 0.25, ease: "easeOut" }}
-          className="mt-auto mb-4 inline-flex flex-col items-center gap-2 dark:text-neutral-300 text-neutral-700 pointer-events-none"
+          className="mt-auto mb-4 inline-flex flex-col items-center gap-2 dark:text-white text-black pointer-events-none"
         >
           <span className="text-[10px] font-medium uppercase tracking-[0.22em] sm:text-xs">
             Scroll Down

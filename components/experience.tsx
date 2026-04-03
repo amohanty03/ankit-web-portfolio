@@ -17,7 +17,7 @@ export function Experience() {
         <div className="w-full group/card">
           <div
             className={cn(
-              "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl mx-auto flex flex-col justify-between p-4",
+              "cursor-pointer overflow-hidden relative card h-auto sm:h-96 rounded-md shadow-xl mx-auto flex flex-col justify-between p-4",
               "bg-[url('/tamu.jpg')] bg-cover bg-center",
             )}
           >
@@ -31,20 +31,20 @@ export function Experience() {
                 className="h-10 w-10 rounded-full border-2 object-cover"
               />
               <div className="flex flex-col">
-                <p className="text-base text-gray-50 relative z-10">
+                <p className="relative z-10 text-sm text-gray-50 sm:text-base md:text-base">
                   Student Assistant
                 </p>
-                <p className="text-sm text-gray-50">
+                <p className="text-xs text-gray-50 sm:text-sm">
                   Texas A&M University - Texas Engineering and Experiment
                   Station | College Station, Texas
                 </p>
               </div>
             </div>
             <div className="text content z-10">
-              <h1 className="font-bold text-sm md:text-sm lg:text-md text-gray-50">
+              <h1 className="text-xs font-bold text-gray-50 sm:text-sm md:text-sm lg:text-base">
                 Responsibilities:
               </h1>
-              <ul className="text-sm text-gray-50 text-justify">
+              <ul className="text-xs leading-5 text-gray-50 text-justify sm:text-sm">
                 <li>
                   Spearheading design and development of a full-featured,
                   responsive website from scratch using HTML, CSS, and
@@ -63,7 +63,7 @@ export function Experience() {
         <div className="w-full group/card">
           <div
             className={cn(
-              "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl mx-auto flex flex-col justify-between p-4",
+              "cursor-pointer overflow-hidden relative card h-auto sm:h-96 rounded-md shadow-xl mx-auto flex flex-col justify-between p-4",
               "bg-[url('/tamu.jpg')] bg-cover bg-center",
             )}
           >
@@ -77,20 +77,20 @@ export function Experience() {
                 className="h-10 w-10 rounded-full border-2 object-cover"
               />
               <div className="flex flex-col">
-                <p className="text-base text-gray-50 relative z-10">
+                <p className="relative z-10 text-sm text-gray-50 sm:text-base md:text-base">
                   Graduate Research Assistant
                 </p>
-                <p className="text-sm text-gray-50">
+                <p className="text-xs text-gray-50 sm:text-sm">
                   Texas A&M University - The Bush School of Government and
                   Public Service | College Station, Texas
                 </p>
               </div>
             </div>
             <div className="text content z-10">
-              <h1 className="font-bold text-sm md:text-sm lg:text-md text-gray-50">
+              <h1 className="text-xs font-bold text-gray-50 sm:text-sm md:text-sm lg:text-base">
                 Responsibilities:
               </h1>
-              <ul className="text-sm text-gray-50 text-justify">
+              <ul className="text-xs leading-5 text-gray-50 text-justify sm:text-sm">
                 <li>
                   Analyzed weekly PHQ-9 and PCL-5 depression scores from a
                   longitudinal study using Python and scikit-learn under Dr.
@@ -114,7 +114,7 @@ export function Experience() {
         <div className="w-full group/card">
           <div
             className={cn(
-              "cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl mx-auto flex flex-col justify-between p-4",
+              "cursor-pointer overflow-hidden relative card h-auto sm:h-96 rounded-md shadow-xl mx-auto flex flex-col justify-between p-4",
               "bg-[url('/uwmad.jpg')] bg-cover bg-center",
             )}
           >
@@ -128,19 +128,19 @@ export function Experience() {
                 className="h-10 w-10 rounded-full border-2 object-cover"
               />
               <div className="flex flex-col">
-                <p className="text-base text-gray-50">
+                <p className="text-sm text-gray-50 sm:text-base md:text-base">
                   Undergraduate Research Assistant
                 </p>
-                <p className="text-sm text-gray-50">
+                <p className="text-xs text-gray-50 sm:text-sm">
                   University of Wisconsin – Madison | Madison, Wisconsin
                 </p>
               </div>
             </div>
             <div className="text content z-10">
-              <h1 className="font-bold text-sm md:text-sm lg:text-md text-gray-50">
+              <h1 className="text-xs font-bold text-gray-50 sm:text-sm md:text-sm lg:text-base">
                 Responsibilities:
               </h1>
-              <ul className="text-sm text-gray-50 text-justify">
+              <ul className="text-xs leading-5 text-gray-50 text-justify sm:text-sm">
                 <li>
                   Leveraged OpenAI’s API to develop a database of Li-ion cathode
                   battery voltages across 100+ materials, comparing results
@@ -178,19 +178,19 @@ export function Experience() {
                 className="h-10 w-10 rounded-full border-2 object-cover"
               />
               <div className="flex flex-col">
-                <p className="text-base text-gray-50 relative z-10">
+                <p className="relative z-10 text-sm text-gray-50 sm:text-base md:text-base">
                   Software Engineer Intern
                 </p>
-                <p className="text-sm text-gray-50">
+                <p className="text-xs text-gray-50 sm:text-sm">
                   DRS Daylight Solutions | Madison, WI
                 </p>
               </div>
             </div>
             <div className="text content z-10">
-              <h1 className="font-bold text-sm md:text-sm lg:text-md text-gray-50">
+              <h1 className="text-xs font-bold text-gray-50 sm:text-sm md:text-sm lg:text-base">
                 Responsibilities:
               </h1>
-              <ul className="text-sm text-gray-50 text-justify">
+              <ul className="text-xs leading-5 text-gray-50 text-justify sm:text-sm">
                 <li>
                   Enhanced application performance by optimizing SQL Server
                   queries and implementing indexing strategies, leading to a

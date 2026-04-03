@@ -226,6 +226,18 @@ function tokenizeBash(text: string): Token[] {
       continue;
     }
 
+    if (/^(?:@[\w.-]+\/)?[\w.-]+@[\w.*+-]+$/.test(word)) {
+      tokens.push({ type: "path", value: word });
+      isFirstWord = false;
+      continue;
+    }
+
+    if (/^[\w.-]+\.[a-zA-Z0-9]{1,6}$/.test(word)) {
+      tokens.push({ type: "path", value: word });
+      isFirstWord = false;
+      continue;
+    }
+
     if (word.includes("/") || word.startsWith(".") || word.startsWith("~")) {
       tokens.push({ type: "path", value: word });
       isFirstWord = false;
@@ -424,11 +436,11 @@ export function Terminal({
   }, [lines, phase]);
 
   const prompt = (
-    <span className="dark:text-neutral-500 text-black">
+    <span className="dark:text-white text-black">
       <span className="text-sky-500">{username}</span>
       <span className="text-emerald-600">:</span>
       <span className="text-sky-400">~</span>
-      <span className="dark:text-neutral-500 text-black">$</span>{" "}
+      <span className="text-white">$</span>{" "}
     </span>
   );
 
@@ -449,7 +461,7 @@ export function Terminal({
             <div className="h-3 w-3 rounded-full bg-green-500 transition-colors hover:bg-green-600" />
           </div>
           <div className="flex-1 text-center">
-            <span className="truncate text-xs dark:text-neutral-400 text-black">
+            <span className="truncate text-xs dark:text-white text-black">
               {username} — bash
             </span>
           </div>
@@ -459,7 +471,7 @@ export function Terminal({
         {/* Terminal Content */}
         <div
           ref={contentRef}
-          className="no-visible-scrollbar h-[420px] overflow-y-auto overflow-x-hidden dark:bg-white/[0.05] bg-black p-4 font-mono break-words sm:h-[470px] md:h-[520px]"
+          className="no-visible-scrollbar h-[420px] overflow-y-auto overflow-x-hidden dark:bg-white/[0.05] bg-black/75 p-4 font-mono break-words sm:h-[470px] md:h-[520px]"
         >
           {lines.map((line, i) => (
             <div key={i} className="leading-relaxed whitespace-pre-wrap">
@@ -471,13 +483,13 @@ export function Terminal({
               ) : (
                 <>
                   {typeof line.content === "string" ? (
-                    <span className="text-neutral-300">{line.content}</span>
+                    <span className="text-white">{line.content}</span>
                   ) : (
                     <div className="grid gap-3 lg:grid-cols-[auto_minmax(0,1fr)] lg:gap-6">
-                      <pre className="m-0 overflow-x-auto whitespace-pre text-[10px] leading-tight text-neutral-300 sm:text-xs">
+                      <pre className="m-0 overflow-x-auto whitespace-pre text-[10px] leading-tight text-white sm:text-xs">
                         {line.content.left}
                       </pre>
-                      <div className="whitespace-pre-wrap text-neutral-300 lg:self-center">
+                      <div className="whitespace-pre-wrap text-white lg:self-center">
                         {line.content.right}
                       </div>
                     </div>

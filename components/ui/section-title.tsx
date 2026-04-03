@@ -41,11 +41,11 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title, className }) => {
       >
         <div className="font-mono text-xs text-neutral-400 sm:text-sm">
           <span className="text-sky-500">Ankit@Portfolio</span>
-          <span className="dark:text-neutral-500 text-black">:~$</span>{" "}
+          <span className="dark:text-white text-black">:~$</span>{" "}
           <span className="dark:text-emerald-600 text-emerald-900">
             {command.split(" ")[0]}
           </span>{" "}
-          <span className="dark:text-neutral-500 text-black">
+          <span className="dark:text-white text-black">
             {command.split(" ")[1]}
           </span>{" "}
           <span className="dark:text-amber-200 text-amber-900">

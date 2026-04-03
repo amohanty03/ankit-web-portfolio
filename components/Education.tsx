@@ -45,16 +45,16 @@ export function Education() {
                 className="h-10 w-10 rounded-full border-2 object-cover"
               />
               <div className="flex flex-col">
-                <p className="text-base text-gray-50 relative z-10">
+                <p className="relative z-10 text-sm text-gray-50 sm:text-base md:text-base">
                   Texas A&M University
                 </p>
-                <p className="text-sm text-gray-50">
+                <p className="text-xs text-gray-50 sm:text-sm">
                   College Station, Texas | GPA: 4.0/4.0
                 </p>
               </div>
             </div>
             <div className="text content z-10">
-              <h1 className="font-bold text-lg sm:text-sm md:text-sm lg:text-base xl:text-xl text-gray-50">
+              <h1 className="text-md font-bold text-gray-50 sm:text-md md:text-md lg:text-lg xl:text-xl">
                 Master of Science in Computer Science
               </h1>
             </div>
@@ -78,21 +78,21 @@ export function Education() {
               <Image
                 height={100}
                 width={100}
-                alt="UW–Madison"
+                alt="UW-Madison"
                 src="/cdis.png"
                 className="h-10 w-10 rounded-full border-2 object-cover"
               />
               <div className="flex flex-col">
-                <p className="text-base text-gray-50">
-                  University of Wisconsin – Madison
+                <p className="text-sm text-gray-50 sm:text-base md:text-base">
+                  University of Wisconsin - Madison
                 </p>
-                <p className="text-sm text-gray-50">
+                <p className="text-xs text-gray-50 sm:text-sm">
                   Madison, Wisconsin | GPA: 3.8/4.0
                 </p>
               </div>
             </div>
             <div className="text content z-10">
-              <h1 className="font-bold text-lg sm:text-sm md:text-sm lg:text-base xl:text-xl text-gray-50">
+              <h1 className="text-md font-bold text-gray-50 sm:text-md md:text-md lg:text-lg xl:text-xl">
                 Bachelor of Science in Computer Science
               </h1>
             </div>
@@ -163,7 +163,7 @@ export function AppleCardsCarouselDemo({
 
   return (
     <div className="w-full h-full">
-      <h2 className="max-w-7xl pl-4 py-2 mx-auto items-center text-center text-xl md:text-5xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
+      <h2 className="max-w-7xl pl-4 py-2 mx-auto items-center text-center text-lg sm:text-xl md:text-4xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
         Relevant Coursework
       </h2>
       <Carousel items={cards} />
