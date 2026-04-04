@@ -1,20 +1,18 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Moon, Sun } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useTheme } from "next-themes";
 
 export function Navbar() {
-  const [isDark, setIsDark] = useState(true);
+  const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    // Check if dark mode is enabled
-    const isDarkMode =
-      document.documentElement.classList.contains("dark") || isDark;
-    setIsDark(isDarkMode);
   }, []);
 
   useEffect(() => {
@@ -27,14 +25,7 @@ export function Navbar() {
   }, []);
 
   const toggleTheme = () => {
-    setIsDark(!isDark);
-    if (!isDark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
+    setTheme(resolvedTheme === "dark" ? "light" : "dark");
   };
 
   const navItems = [
@@ -76,17 +67,51 @@ export function Navbar() {
           ))}
         </div>
 
-        {/* Theme Toggle Button */}
-        {mounted && (
+        <div className="flex items-center gap-2">
+          {/* Theme Toggle Button */}
+          {mounted && (
+            <button
+              onClick={toggleTheme}
+              className="rounded-md bg-transparent p-1.5 text-black transition-colors duration-200 hover:text-red-500 dark:text-white dark:hover:text-neutral-500"
+              aria-label="Toggle theme"
+            >
+              {resolvedTheme === "dark" ? (
+                <Sun size={18} />
+              ) : (
+                <Moon size={18} />
+              )}
+            </button>
+          )}
+
+          {/* Mobile Menu Button */}
           <button
-            onClick={toggleTheme}
-            className="rounded-md bg-transparent p-1.5 text-black transition-colors duration-200 hover:bg-translucent hover:text-white dark:text-white dark:hover:text-neutral-500"
-            aria-label="Toggle theme"
+            onClick={() => setMobileOpen((prev) => !prev)}
+            className="rounded-md p-1.5 text-black transition-colors duration-200 hover:text-red-500 dark:text-white md:hidden"
+            aria-label="Toggle menu"
           >
-            {isDark ? <Sun size={18} /> : <Moon size={18} />}
+            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
-        )}
+        </div>
       </div>
+
+      {mobileOpen && (
+        <div className="mx-auto w-full max-w-5xl px-4 pb-3 md:hidden">
+          <div className="rounded-xl border border-black/10 bg-white/80 p-3 backdrop-blur-md dark:border-white/10 dark:bg-black/70">
+            <div className="flex flex-col gap-2">
+              {navItems.map((item) => (
+                <a
+                  key={`mobile-${item.href}`}
+                  href={item.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded-md px-2 py-1.5 text-sm text-black transition-colors duration-200 hover:text-red-500 dark:text-white dark:hover:text-neutral-400"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

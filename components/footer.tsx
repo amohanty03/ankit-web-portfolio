@@ -5,12 +5,12 @@ export default function Footer() {
   return (
     <footer className="pointer-events-auto relative mt-6 w-full border-t border-black/10 dark:border-white/10">
       <div className="absolute inset-0 bg-gradient-to-b from-orange-500/10 via-transparent to-transparent" />
-      <div className="relative mx-auto flex w-full max-w-5xl items-center gap-3 px-6 py-5 sm:px-10 md:px-0">
-        <p className="min-w-0 flex-1 text-[11px] text-neutral-500 dark:text-neutral-500">
+      <div className="relative mx-auto flex w-full max-w-5xl flex-col items-start gap-2 px-6 py-5 sm:px-10 md:flex-row md:items-center md:gap-3 md:px-0">
+        <p className="text-[10px] text-neutral-500 dark:text-neutral-500 sm:text-[11px] md:flex-1">
           Built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
         </p>
-        <div className="ml-auto flex shrink-0 items-center gap-3">
-          <p className="min-w-0 flex-1 text-[11px] text-neutral-500 dark:text-neutral-500">
+        <div className="flex w-full items-center gap-3 md:ml-auto md:w-auto md:shrink-0">
+          <p className="text-[10px] text-neutral-500 dark:text-neutral-500 sm:text-[11px]">
             &copy; {new Date().getFullYear()} Ankit Mohanty. All rights
             reserved.
           </p>
