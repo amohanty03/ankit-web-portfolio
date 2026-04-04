@@ -20,6 +20,8 @@ import { Timeline } from "@/components/ui/timeline";
 import { Education } from "@/components/education";
 import { Experience } from "@/components/experience";
 import { Projects } from "@/components/projects";
+import Contact from "@/components/contact";
+import Footer from "@/components/footer";
 import ProgrammingIconsRibbonStack from "@/components/programming-languages";
 import { Boxes } from "@/components/ui/background-boxes";
 import { Navbar } from "@/components/navbar";
@@ -49,7 +51,10 @@ export default function Home() {
         <div id="projects" className="pointer-events-auto scroll-mt-28">
           <Projects />
         </div>
-        <div className="h-36 w-full"></div>
+        <div id="contact" className="pointer-events-auto scroll-mt-28">
+          <Contact />
+        </div>
+        <Footer />
       </div>
     </main>
   );

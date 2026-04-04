@@ -187,7 +187,7 @@ const Hero = () => {
                 <MagicButton
                   title="See my work"
                   icon={<FaRegFileCode />}
-                  position="right"
+                  position="left"
                 />
               </a>
             </div>
@@ -200,7 +200,7 @@ const Hero = () => {
                 <MagicButton
                   title="Get my résumé"
                   icon={<FaRegFilePdf />}
-                  position="right"
+                  position="left"
                 />
               </a>
             </div>

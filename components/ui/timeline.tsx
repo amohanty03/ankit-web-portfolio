@@ -16,6 +16,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
+  const lineHeight = Math.max(height - 80, 0);
 
   useEffect(() => {
     if (ref.current) {
@@ -29,7 +30,11 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     offset: ["start 45%", "end 85%"],
   });
 
-  const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
+  const heightTransform = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, lineHeight],
+  );
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
@@ -56,7 +61,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         ))}
         <div
           style={{
-            height: height + "px",
+            height: lineHeight + "px",
           }}
           className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] "
         >

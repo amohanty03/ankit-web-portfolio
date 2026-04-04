@@ -1,0 +1,39 @@
+import React from "react";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
+
+export default function Footer() {
+  return (
+    <footer className="pointer-events-auto relative mt-6 w-full border-t border-black/10 dark:border-white/10">
+      <div className="absolute inset-0 bg-gradient-to-b from-orange-500/10 via-transparent to-transparent" />
+      <div className="relative mx-auto flex w-full max-w-5xl items-center gap-3 px-6 py-5 sm:px-10 md:px-0">
+        <p className="min-w-0 flex-1 text-[11px] text-neutral-500 dark:text-neutral-500">
+          Built with Next.js, TypeScript, Tailwind CSS, and Framer Motion.
+        </p>
+        <div className="ml-auto flex shrink-0 items-center gap-3">
+          <p className="min-w-0 flex-1 text-[11px] text-neutral-500 dark:text-neutral-500">
+            &copy; {new Date().getFullYear()} Ankit Mohanty. All rights
+            reserved.
+          </p>
+          <a
+            href="https://github.com/amohanty03"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/15 text-neutral-700 transition-colors hover:border-orange-500/50 hover:text-orange-600 dark:border-white/20 dark:text-neutral-200 dark:hover:border-orange-300/50 dark:hover:text-orange-300"
+            aria-label="GitHub"
+          >
+            <FaGithub className="h-3.5 w-3.5" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/mohanty-ankit/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/15 text-neutral-700 transition-colors hover:border-orange-500/50 hover:text-orange-600 dark:border-white/20 dark:text-neutral-200 dark:hover:border-orange-300/50 dark:hover:text-orange-300"
+            aria-label="LinkedIn"
+          >
+            <FaLinkedinIn className="h-3.5 w-3.5" />
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
+}
