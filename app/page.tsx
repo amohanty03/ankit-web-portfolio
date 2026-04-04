@@ -31,9 +31,16 @@ export default function Home() {
     <main className="relative isolate bg-white dark:bg-black flex justify-center items-center flex-col overflow-hidden mx-auto min-h-screen pt-20">
       <Navbar />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <div className="fixed inset-0 w-screen h-screen overflow-hidden z-10">
-        <div className="absolute inset-0 z-0 bg-gradient-to-br from-orange-500/12 via-transparent to-cyan-400/12 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
-        <Boxes className="z-40 pointer-events-auto" />
+      <div className="fixed inset-0 z-10 hidden overflow-hidden sm:block">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-br from-orange-500/12 via-transparent to-cyan-400/12 [mask-image:radial-gradient(transparent,white)]" />
+        <Boxes className="z-40 pointer-events-none" />
+      </div>
+      <div className="absolute inset-0 z-10 overflow-hidden sm:hidden">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-br from-orange-500/10 via-transparent to-cyan-400/10" />
+        <Boxes
+          density="compact"
+          className="z-40 pointer-events-none opacity-35"
+        />
       </div>
       <div className="relative z-20 items-center justify-center w-full pointer-events-none">
         <div id="about" className="pointer-events-auto scroll-mt-28">
