@@ -1,19 +1,17 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Menu, Moon, Sun, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useTheme } from "next-themes";
 
+const ENTER_DURATION = 0.45;
+
 export function Navbar() {
   const { resolvedTheme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,7 +23,8 @@ export function Navbar() {
   }, []);
 
   const toggleTheme = () => {
-    setTheme(resolvedTheme === "dark" ? "light" : "dark");
+    const currentTheme = resolvedTheme ?? "light";
+    setTheme(currentTheme === "dark" ? "light" : "dark");
   };
 
   const navItems = [
@@ -38,7 +37,10 @@ export function Navbar() {
   ];
 
   return (
-    <nav
+    <motion.nav
+      initial={{ opacity: 0, y: -12 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: ENTER_DURATION, ease: "easeOut" }}
       className={cn(
         "fixed top-0 left-0 right-0 z-[100] transition-all duration-300",
         scrolled
@@ -69,19 +71,14 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           {/* Theme Toggle Button */}
-          {mounted && (
-            <button
-              onClick={toggleTheme}
-              className="rounded-md bg-transparent p-1.5 text-black transition-colors duration-200 hover:text-red-500 dark:text-white dark:hover:text-neutral-500"
-              aria-label="Toggle theme"
-            >
-              {resolvedTheme === "dark" ? (
-                <Sun size={18} />
-              ) : (
-                <Moon size={18} />
-              )}
-            </button>
-          )}
+          <button
+            onClick={toggleTheme}
+            className="rounded-md bg-transparent p-1.5 text-black transition-colors duration-200 hover:text-red-500 dark:text-white dark:hover:text-neutral-500"
+            aria-label="Toggle theme"
+          >
+            <Sun size={18} className="hidden dark:block" aria-hidden="true" />
+            <Moon size={18} className="block dark:hidden" aria-hidden="true" />
+          </button>
 
           {/* Mobile Menu Button */}
           <button
@@ -112,6 +109,6 @@ export function Navbar() {
           </div>
         </div>
       )}
-    </nav>
+    </motion.nav>
   );
 }

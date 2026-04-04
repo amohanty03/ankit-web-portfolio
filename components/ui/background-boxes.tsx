@@ -1,26 +1,9 @@
 "use client";
 import React, { useMemo } from "react";
-import { motion } from "motion/react";
-
-const DARK_COLORS = [
-  "#fca5a5",
-  "#f87171",
-  "#ef4444",
-  "#dc2626",
-  "#fb923c",
-  "#f97316",
-  "#ea580c",
-  "#fdba74",
-  "#fed7aa",
-];
 
 export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
   const ROWS = useMemo(() => new Array(150).fill(1), []);
   const COLS = useMemo(() => new Array(100).fill(1), []);
-
-  const getRandomColor = () => {
-    return DARK_COLORS[Math.floor(Math.random() * DARK_COLORS.length)];
-  };
 
   const boxesStyle = useMemo(
     () => ({
@@ -36,23 +19,16 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
       {...rest}
     >
       {ROWS.map((_, i) => (
-        <motion.div
+        <div
           key={`row` + i}
           className="relative h-8 w-16 border-l border-orange-500/40"
         >
           {COLS.map((_, j) => (
-            <motion.div
-              whileHover={{
-                backgroundColor: `${getRandomColor()}`,
-                transition: { duration: 0 },
-              }}
-              animate={{
-                transition: { duration: 2 },
-              }}
+            <div
               key={`col` + j}
               className="relative h-8 w-16 border-t border-r border-red-500/40"
             >
-              {j % 2 === 0 && i % 2 === 0 ? (
+              {j % 3 === 0 && i % 3 === 0 ? (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -68,9 +44,9 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
                   />
                 </svg>
               ) : null}
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       ))}
     </div>
   );
