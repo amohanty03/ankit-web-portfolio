@@ -13,17 +13,19 @@ const MagicButton = ({
   icon,
   position,
   handleClick,
+  buttonClasses,
   otherClasses,
 }: {
   title: string;
   icon: React.ReactNode;
   position: string;
   handleClick?: () => void;
+  buttonClasses?: string;
   otherClasses?: string;
 }) => {
   return (
     <button
-      className="relative inline-flex h-10 w-auto max-w-full overflow-hidden rounded-lg p-[1px] focus:outline-none transition-transform hover:scale-105 sm:h-12 sm:w-52"
+      className={`relative inline-flex h-10 w-auto max-w-full overflow-hidden rounded-lg p-[1px] focus:outline-none transition-transform hover:scale-105 sm:h-12 sm:w-52 ${buttonClasses ?? ""}`}
       onClick={handleClick}
     >
       <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#FF2C2C_0%,#FF2C2C_50%,#FFA500_100%)]" />

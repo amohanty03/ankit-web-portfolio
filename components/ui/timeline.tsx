@@ -5,7 +5,7 @@ import {
   useTransform,
   motion,
 } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useLayoutEffect, useRef, useState } from "react";
 
 interface TimelineEntry {
   title: string;
@@ -18,12 +18,31 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const [height, setHeight] = useState(0);
   const lineHeight = Math.max(height - 80, 0);
 
-  useEffect(() => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      setHeight(rect.height);
+  useLayoutEffect(() => {
+    const element = ref.current;
+
+    if (!element) {
+      return;
     }
-  }, [ref]);
+
+    const updateHeight = () => {
+      setHeight(element.scrollHeight);
+    };
+
+    updateHeight();
+
+    const observer = new ResizeObserver(() => {
+      updateHeight();
+    });
+
+    observer.observe(element);
+    window.addEventListener("resize", updateHeight);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateHeight);
+    };
+  }, [data]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,

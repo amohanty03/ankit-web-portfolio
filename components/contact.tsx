@@ -6,6 +6,7 @@ import SectionTitle from "./ui/section-title";
 import { getEmailAddress, getMailtoHref } from "@/lib/email";
 import {
   FaArrowUpRightFromSquare,
+  FaRegCopy,
   FaEye,
   FaEyeSlash,
   FaGithub,
@@ -43,9 +44,26 @@ const contactItems: ContactItem[] = [
 
 export default function Contact() {
   const [showEmail, setShowEmail] = React.useState(false);
+  const [copiedEmail, setCopiedEmail] = React.useState(false);
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [message, setMessage] = React.useState("");
+
+  const handleCopyEmail = async () => {
+    const emailAddress = getEmailAddress();
+
+    if (!emailAddress) {
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(emailAddress);
+      setCopiedEmail(true);
+      window.setTimeout(() => setCopiedEmail(false), 1600);
+    } catch {
+      setCopiedEmail(false);
+    }
+  };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -93,34 +111,41 @@ export default function Contact() {
                 item.label === "Email" ? (
                   <div
                     key={item.label}
-                    className="group flex items-center justify-between rounded-xl border border-black/10 bg-white/55 px-4 py-3 transition-colors duration-300 hover:border-orange-500/40 dark:border-white/10 dark:bg-black/20"
+                    className="group flex items-start justify-between gap-3 rounded-xl border border-black/10 bg-white/55 px-4 py-3 transition-colors duration-300 hover:border-orange-500/40 dark:border-white/10 dark:bg-black/20 sm:items-center"
                   >
-                    <div className="flex items-center gap-3">
-                      <div className="text-orange-600 dark:text-orange-300">
+                    <div className="flex min-w-0 flex-1 items-start gap-3 sm:items-center">
+                      <div className="flex h-10 shrink-0 items-center justify-center text-orange-600 dark:text-orange-300">
                         {item.icon}
                       </div>
-                      <div>
+                      <div className="min-w-0">
                         <p className="text-xs uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
                           {item.label}
                         </p>
-                        <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100 sm:text-base">
+                        <p className="break-all text-sm font-medium text-neutral-900 dark:text-neutral-100 sm:text-base">
                           {showEmail ? item.value : "Click reveal to view"}
                         </p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <button
-                        type="button"
-                        onClick={() => setShowEmail((prev) => !prev)}
-                        aria-label={showEmail ? "Hide email" : "Reveal email"}
-                        className="rounded-lg text-neutral-500 transition-colors hover:text-orange-600 dark:text-neutral-500 dark:hover:text-orange-300"
-                      >
-                        {showEmail ? (
-                          <FaEyeSlash className="h-4 w-4" />
-                        ) : (
+                    <div className="flex shrink-0 items-center gap-2 self-center">
+                      {showEmail ? (
+                        <button
+                          type="button"
+                          onClick={handleCopyEmail}
+                          aria-label="Copy email address"
+                          className="rounded-lg text-neutral-500 transition-colors hover:text-orange-600 dark:text-neutral-500 dark:hover:text-orange-300"
+                        >
+                          <FaRegCopy className="h-4 w-4" />
+                        </button>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => setShowEmail((prev) => !prev)}
+                          aria-label={showEmail ? "Hide email" : "Reveal email"}
+                          className="rounded-lg text-neutral-500 transition-colors hover:text-orange-600 dark:text-neutral-500 dark:hover:text-orange-300"
+                        >
                           <FaEye className="h-4 w-4" />
-                        )}
-                      </button>
+                        </button>
+                      )}
                       {showEmail ? (
                         <a
                           href={item.href}
@@ -129,6 +154,11 @@ export default function Contact() {
                         >
                           <FaArrowUpRightFromSquare className="h-4 w-4" />
                         </a>
+                      ) : null}
+                      {copiedEmail ? (
+                        <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-orange-600 dark:text-orange-300">
+                          Copied
+                        </span>
                       ) : null}
                     </div>
                   </div>

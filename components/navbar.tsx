@@ -14,6 +14,42 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const topBarRef = React.useRef<HTMLDivElement | null>(null);
 
+  const runThemeCrossfade = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    const overlay = document.createElement("div");
+    overlay.className = "theme-switch-overlay";
+    const bodyBackground = getComputedStyle(document.body).backgroundColor;
+    const htmlBackground = getComputedStyle(
+      document.documentElement,
+    ).backgroundColor;
+    const isTransparent = (value: string) =>
+      !value || value === "transparent" || value === "rgba(0, 0, 0, 0)";
+
+    const fallbackBackground = resolvedTheme === "dark" ? "#050505" : "#ffffff";
+    overlay.style.backgroundColor = !isTransparent(bodyBackground)
+      ? bodyBackground
+      : !isTransparent(htmlBackground)
+        ? htmlBackground
+        : fallbackBackground;
+
+    document.body.appendChild(overlay);
+
+    requestAnimationFrame(() => {
+      overlay.style.opacity = "0";
+    });
+
+    overlay.addEventListener(
+      "transitionend",
+      () => {
+        overlay.remove();
+      },
+      { once: true },
+    );
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -25,7 +61,9 @@ export function Navbar() {
 
   const toggleTheme = () => {
     const currentTheme = resolvedTheme ?? "light";
-    setTheme(currentTheme === "dark" ? "light" : "dark");
+    const nextTheme = currentTheme === "dark" ? "light" : "dark";
+    runThemeCrossfade();
+    setTheme(nextTheme);
   };
 
   const navItems = [
@@ -104,7 +142,7 @@ export function Navbar() {
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
-            className="rounded-md bg-transparent p-1.5 text-black transition-colors duration-200 hover:text-red-500 dark:text-white dark:hover:text-neutral-500"
+            className="rounded-md bg-transparent p-1.5 text-black transition-colors duration-200 hover:text-black md:hover:text-red-500 dark:text-white dark:hover:text-white dark:md:hover:text-neutral-500"
             aria-label="Toggle theme"
           >
             <Sun size={18} className="hidden dark:block" aria-hidden="true" />
@@ -114,7 +152,7 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileOpen((prev) => !prev)}
-            className="rounded-md p-1.5 text-black transition-colors duration-200 hover:text-red-500 dark:text-white md:hidden"
+            className="rounded-md p-1.5 text-black transition-colors duration-200 hover:text-black md:hover:text-red-500 dark:text-white dark:hover:text-white md:hidden"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X size={18} /> : <Menu size={18} />}

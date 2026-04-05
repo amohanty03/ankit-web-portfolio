@@ -47,7 +47,7 @@ export default function Home() {
         </section>
         <section
           id="contact"
-          className="pointer-events-auto flex min-h-screen w-full flex-col justify-between py-6"
+          className="pointer-events-auto flex min-h-screen w-full flex-col justify-between pt-6 pb-0"
         >
           <div className="flex w-full flex-1 items-center justify-center">
             <Contact />

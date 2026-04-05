@@ -77,11 +77,7 @@ export default function About() {
               </li>
             </ul>
             <div className="flex justify-center">
-              <a
-                href="https://drive.google.com/file/d/1wxFKkm2C4UR7U2Y__uSs4tN4QVr_47dQ/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href="/resume" target="_blank" rel="noopener noreferrer">
                 <MagicButton
                   title="Get my résumé"
                   icon={<FaRegFilePdf />}

@@ -1,7 +1,8 @@
 export function getEmailAddress(): string {
-  return process.env.NEXT_PUBLIC_EMAIL || "";
+  return (process.env.NEXT_PUBLIC_EMAIL ?? "").trim();
 }
 
 export function getMailtoHref(): string {
-  return `mailto:${getEmailAddress()}`;
+  const email = getEmailAddress();
+  return email ? `mailto:${email}` : "mailto:";
 }
