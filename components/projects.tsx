@@ -12,12 +12,13 @@ import {
 
 export function Projects() {
   return (
-    <section id="projects" className="relative mt-12 md:mt-14 lg:mt-20">
+    <section className="relative">
       <SectionTitle title="My Projects" />
       <div className="mx-auto w-full max-w-5xl px-6 pt-5 sm:px-10 md:px-0 lg:px-0">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
           className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3"
         >
@@ -26,6 +27,7 @@ export function Projects() {
               key={item.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{
                 delay: 0.1 + index * 0.08,
                 duration: 0.5,

@@ -1,22 +1,6 @@
 "use client";
 import React from "react";
 import Hero from "@/components/hero";
-import { FloatingDock } from "@/components/ui/floating-dock";
-import {
-  FaHouse,
-  FaUser,
-  FaLaptopCode,
-  FaRegEnvelope,
-  FaLinkedinIn,
-  FaGithub,
-  FaFileArrowDown,
-  FaBook,
-  FaBriefcase,
-} from "react-icons/fa6";
-import Image from "next/image";
-import { BackgroundGradient } from "@/components/ui/background-gradient";
-import MagicButton from "@/components/ui/magic-button";
-import { Timeline } from "@/components/ui/timeline";
 import { Education } from "@/components/education";
 import { Experience } from "@/components/experience";
 import { Projects } from "@/components/projects";
@@ -27,8 +11,11 @@ import { Boxes } from "@/components/ui/background-boxes";
 import { Navbar } from "@/components/navbar";
 
 export default function Home() {
+  const sectionClass =
+    "pointer-events-auto flex min-h-screen w-full items-center justify-center py-6";
+
   return (
-    <main className="relative isolate bg-white dark:bg-black flex justify-center items-center flex-col overflow-hidden mx-auto min-h-screen pt-20">
+    <main className="relative isolate mx-auto flex min-h-screen flex-col items-center justify-center overflow-hidden bg-white dark:bg-black">
       <Navbar />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <div className="fixed inset-0 z-10 hidden overflow-hidden sm:block">
@@ -42,26 +29,31 @@ export default function Home() {
           className="z-40 pointer-events-none opacity-35"
         />
       </div>
-      <div className="relative z-20 items-center justify-center w-full pointer-events-none">
-        <div id="about" className="pointer-events-auto scroll-mt-28">
+      <div className="relative z-20 w-full items-center justify-center pointer-events-none">
+        <section id="about" className={sectionClass}>
           <Hero />
-        </div>
-        <div id="skills" className="pointer-events-auto scroll-mt-28">
+        </section>
+        <section id="skills" className={sectionClass}>
           <ProgrammingIconsRibbonStack />
-        </div>
-        <div id="education" className="pointer-events-auto scroll-mt-28">
+        </section>
+        <section id="education" className={sectionClass}>
           <Education />
-        </div>
-        <div id="experience" className="pointer-events-auto scroll-mt-28">
+        </section>
+        <section id="experience" className={sectionClass}>
           <Experience />
-        </div>
-        <div id="projects" className="pointer-events-auto scroll-mt-28">
+        </section>
+        <section id="projects" className={sectionClass}>
           <Projects />
-        </div>
-        <div id="contact" className="pointer-events-auto scroll-mt-28">
-          <Contact />
-        </div>
-        <Footer />
+        </section>
+        <section
+          id="contact"
+          className="pointer-events-auto flex min-h-screen w-full flex-col justify-between py-6"
+        >
+          <div className="flex w-full flex-1 items-center justify-center">
+            <Contact />
+          </div>
+          <Footer />
+        </section>
       </div>
     </main>
   );

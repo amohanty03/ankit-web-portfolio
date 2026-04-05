@@ -103,17 +103,18 @@ export function Education() {
   ];
 
   return (
-    <div className="relative w-full mt-12 md:mt-14 lg:mt-20">
+    <div className="relative w-full">
       <SectionTitle title="My Education" />
       <motion.div
         initial={{ opacity: 0.0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{
           delay: 0.3,
           duration: 0.8,
           ease: "easeInOut",
         }}
-        className="relative mx-auto flex h-full w-full max-w-6xl flex-col items-center justify-center gap-4 px-6 sm:px-10 md:px-0 lg:px-0"
+        className="relative mx-auto flex h-full w-full max-w-6xl flex-col items-center justify-center gap-4 px-6 pt-5 sm:px-10 md:px-0 lg:px-0"
       >
         <div className="w-full">
           <Timeline data={timelineData} />

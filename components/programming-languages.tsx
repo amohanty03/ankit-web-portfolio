@@ -96,19 +96,21 @@ const categories: Category[] = [
 const ProgrammingIconsRibbonStack = () => {
   return (
     <section id="languages-tools">
-      <div className="relative mt-12 px-6 py-5 sm:px-10 md:mt-14 md:px-0 lg:mt-20 lg:px-0">
-        <SectionTitle title="Technical Skills" />
+      <div className="relative mx-auto w-full max-w-5xl px-6 sm:px-10 md:px-0 lg:px-0">
+        <SectionTitle title="Technical Skills" className="px-0 sm:px-0" />
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
-          className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 pt-5"
+          className="grid w-full grid-cols-1 gap-4 pt-5 md:grid-cols-2 xl:grid-cols-3"
         >
           {categories.map((category, index) => (
             <motion.article
               key={category.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{
                 delay: 0.1 + index * 0.08,
                 duration: 0.5,

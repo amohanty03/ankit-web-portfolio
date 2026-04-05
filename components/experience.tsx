@@ -214,11 +214,12 @@ export function Experience() {
   ];
 
   return (
-    <div className="relative w-full mt-12 md:mt-14 lg:mt-20">
+    <div className="relative w-full">
       <SectionTitle title="My Experience" />
       <motion.div
         initial={{ opacity: 0.0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{
           delay: 0.3,
           duration: 0.8,

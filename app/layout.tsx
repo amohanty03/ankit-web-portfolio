@@ -9,7 +9,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ankit Mohanty",
+  title: "Ankit Mohanty | Software Engineer | MCS @ Texas A&M University",
   description: "Welcome to Ankit Mohanty's Web Portfolio!",
   icons: {
     icon: "/logo.png",

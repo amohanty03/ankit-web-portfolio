@@ -12,6 +12,7 @@ import {
   FaLinkedinIn,
   FaRegEnvelope,
 } from "react-icons/fa6";
+import { getMailtoHref } from "@/lib/email";
 import { Terminal } from "./ui/terminal";
 
 const Hero = () => {
@@ -28,7 +29,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative flex w-full min-h-[calc(100vh-5rem)] items-center">
+    <div className="relative flex w-full min-h-screen items-center">
       <motion.div
         initial={{ opacity: 0.0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -37,7 +38,7 @@ const Hero = () => {
           duration: 0.45,
           ease: "easeOut",
         }}
-        className="relative flex w-full min-h-[calc(100vh-5rem)] flex-col items-center justify-start gap-6 px-2 pt-2 sm:px-4 sm:pt-4 md:px-6 md:pt-6 lg:px-8"
+        className="relative flex w-full flex-col items-center justify-start gap-6 px-2 sm:px-4 sm:pt-4 md:px-6 md:pt-6 lg:px-8"
       >
         <div className="flex w-full justify-center">
           <div className="flex w-full max-w-4xl flex-wrap items-center justify-center gap-3 sm:gap-4">
@@ -51,7 +52,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="mx-auto mt-5 flex w-full max-w-5xl flex-col items-center justify-center px-0 py-0 sm:px-2">
+        <div className="mx-auto flex w-full max-w-5xl flex-col items-center justify-center px-0 py-0 sm:px-2">
           <Terminal
             className="max-w-5xl"
             commands={[
@@ -146,7 +147,7 @@ const Hero = () => {
                 <FaLinkedinIn className="h-5 w-5" />
               </a>
               <a
-                href="mailto:"
+                href={getMailtoHref()}
                 className="dark:hover:text-orange-300 hover:text-orange-500 dark:text-white text-black transition-colors"
                 aria-label="Email"
               >

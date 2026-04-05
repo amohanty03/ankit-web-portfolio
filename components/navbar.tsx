@@ -12,6 +12,7 @@ export function Navbar() {
   const { resolvedTheme, setTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const topBarRef = React.useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,6 +37,32 @@ export function Navbar() {
     { label: "contact/", href: "#contact" },
   ];
 
+  const handleNavClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    event.preventDefault();
+    setMobileOpen(false);
+
+    const target = document.querySelector(href);
+    if (!(target instanceof HTMLElement)) {
+      return;
+    }
+
+    const navHeight = topBarRef.current?.offsetHeight ?? 64;
+    const targetTop = target.getBoundingClientRect().top + window.scrollY;
+    const maxScrollTop = Math.max(
+      0,
+      document.documentElement.scrollHeight - window.innerHeight,
+    );
+    const defaultTop = Math.max(0, targetTop - navHeight - 10);
+    const isMobile = window.innerWidth < 768;
+    const top = href === "#contact" && !isMobile ? maxScrollTop : defaultTop;
+
+    window.scrollTo({ top, behavior: "smooth" });
+    window.history.replaceState(null, "", href);
+  };
+
   return (
     <motion.nav
       initial={{ opacity: 0, y: -12 }}
@@ -48,7 +75,10 @@ export function Navbar() {
           : "bg-transparent",
       )}
     >
-      <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-2.5">
+      <div
+        ref={topBarRef}
+        className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-2.5"
+      >
         {/* Logo/Brand */}
         <img
           src="logo.png"
@@ -62,6 +92,7 @@ export function Navbar() {
             <a
               key={item.href}
               href={item.href}
+              onClick={(event) => handleNavClick(event, item.href)}
               className="text-sm transition-colors duration-200 dark:text-white text-black hover:text-red-500 dark:hover:text-neutral-500"
             >
               {item.label}
@@ -99,7 +130,7 @@ export function Navbar() {
                 <a
                   key={`mobile-${item.href}`}
                   href={item.href}
-                  onClick={() => setMobileOpen(false)}
+                  onClick={(event) => handleNavClick(event, item.href)}
                   className="rounded-md px-2 py-1.5 text-sm text-black transition-colors duration-200 hover:text-red-500 dark:text-white dark:hover:text-neutral-400"
                 >
                   {item.label}
