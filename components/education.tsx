@@ -126,7 +126,7 @@ export function Education() {
             onClick={handleClose}
           >
             <div
-              className="bg-white dark:bg-neutral-900 w-11/12 max-w-5xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl p-4"
+              className="bg-white dark:bg-black w-11/12 max-w-5xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl p-4"
               onClick={(e) => e.stopPropagation()}
             >
               <AppleCardsCarouselDemo university={activeUniversity} />
@@ -164,7 +164,7 @@ export function AppleCardsCarouselDemo({
 
   return (
     <div className="w-full h-full">
-      <h2 className="max-w-7xl pl-4 py-2 mx-auto items-center text-center text-lg sm:text-xl md:text-4xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
+      <h2 className="max-w-7xl pl-4 py-2 mx-auto items-center text-center text-lg sm:text-xl md:text-4xl font-bold text-black dark:text-neutral-200 font-sans">
         Relevant Coursework
       </h2>
       <Carousel items={cards} />
@@ -177,7 +177,7 @@ const dataTAMU = [
     title: "Software Engineering",
     src: "se.jpg",
     content: (
-      <p className="text-white">
+      <p className="text-neutral-700 dark:text-neutral-200">
         Development of advanced concepts in software engineering; software
         development environments as a mechanism for enhancing productivity and
         software quality; the classification, evaluation and selection of
@@ -192,7 +192,7 @@ const dataTAMU = [
     title: "Distributed Processing Systems",
     src: "dps.jpg",
     content: (
-      <p className="text-white">
+      <p className="text-neutral-700 dark:text-neutral-200">
         Principles and practices of distributed processing; protocols, remote
         procedure calls; file sharing; reliable system design; load balancing;
         distributed database systems; protection and security; implementation.
@@ -204,7 +204,7 @@ const dataTAMU = [
     title: "Digital Forensics Engineering",
     src: "dfe.jpg",
     content: (
-      <p className="text-white">
+      <p className="text-neutral-700 dark:text-neutral-200">
         {" "}
         Fundamentals and hands-on practice of computer and network forensics;
         exposure to technical principles, digital forensic tools and legal
@@ -218,7 +218,7 @@ const dataTAMU = [
     title: "Analysis of Algorithms",
     src: "algos.jpg",
     content: (
-      <p className="text-white">
+      <p className="text-neutral-700 dark:text-neutral-200">
         Concrete algorithm design and analysis; abstract models to analyze the
         complexity of problems; NP-Completeness; approximation and probabilistic
         algorithms.{" "}
@@ -230,7 +230,7 @@ const dataTAMU = [
     title: "Computer Vision and Robot Perception",
     src: "cvrp.jpg",
     content: (
-      <p className="text-white">
+      <p className="text-neutral-700 dark:text-neutral-200">
         Projective geometry foundations of computer vision including spatial
         representations; geometric relations between multiple views of scenes;
         general principles of camera and image parameter estimation; visual
@@ -244,7 +244,7 @@ const dataTAMU = [
     title: "Computer and Network Security",
     src: "netsec.jpg",
     content: (
-      <p className="text-white">
+      <p className="text-neutral-700 dark:text-neutral-200">
         Fundamental vulnerabilities of the networking communications and
         corresponding defense mechanisms covering cryptographic algorithms with
         the primary intent to correctly apply them for real-work network
@@ -255,6 +255,71 @@ const dataTAMU = [
       </p>
     ),
   },
+  {
+    category: "Fall 2025: CSCE 611",
+    title: "Operating Systems",
+    src: "os_new.jpg",
+    content: (
+      <p className="text-neutral-700 dark:text-neutral-200">
+        Review of computer architecture hardware/software evolution leading to
+        contemporary operating systems; basic operating systems concepts;
+        methods of operating systems design and construction; algorithms for CPU
+        scheduling memory and general resource allocation; process coordination
+        and management; case studies of several operating systems;
+        quality-of-services of operating systems and their impact on
+        applications.
+      </p>
+    ),
+  },
+  {
+    category: "Fall 2025: CSCE 634",
+    title: "Intelligent User Interfaces",
+    src: "iui.jpg",
+    content: (
+      <p className="text-neutral-700 dark:text-neutral-200">
+        Intersection of artificial intelligence and computer-human interaction;
+        emphasis on designing and evaluating systems that learn about and adapt
+        to their users, tasks, and environments.
+      </p>
+    ),
+  },
+  {
+    category: "Fall 2025: CSCE 681",
+    title: "Seminar",
+    src: "netsec.jpg",
+    content: (
+      <p className="text-neutral-700 dark:text-neutral-200">
+        Reports and discussion of current research and of selected published
+        technical articles.
+      </p>
+    ),
+  },
+  {
+    category: "Fall 2025: CSCE 735",
+    title: "Parallel Computing",
+    src: "pc.jpg",
+    content: (
+      <p className="text-neutral-700 dark:text-neutral-200">
+        Overview of parallel computing technology and programming methods;
+        topics include multiprocessor architectures, programming tools, parallel
+        performance, parallel algorithms and applications of parallel computing.
+      </p>
+    ),
+  },
+  {
+    category: "Spring 2026: CSCE 608",
+    title: "Database Systems",
+    src: "db.jpg",
+    content: (
+      <p className="text-neutral-700 dark:text-neutral-200">
+        Database modeling techniques; expressiveness in query languages
+        including knowledge representation; manipulation languages data models;
+        physical data organization; relational database design theory; query
+        processing; transaction management and recovery; distributed data
+        management.
+      </p>
+    ),
+  },
 ];
 const dataUW = [
   {
@@ -262,7 +327,7 @@ const dataUW = [
     title: "Introduction to Programming I",
     src: "java.jpg",
     content: (
-      <p className="text-white">
+      <p className="text-neutral-700 dark:text-neutral-200">
         Incrementally developing small (200-500 lines) programs along with the
         fundamental Computer Science topics. These topics include: problem
         abstraction and decomposition, the edit-compile-run cycle, using
@@ -279,7 +344,7 @@ const dataUW = [
     title: "Introduction to Programming II",
     src: "java.jpg",
     content: (
-      <p className="text-white">
+      <p className="text-neutral-700 dark:text-neutral-200">
         Introduction to Object-Oriented Programming using classes and objects to
         solve more complex problems. Introduces array-based and linked data
         structures: including lists, stacks, and queues. Programming assignments
@@ -301,7 +366,7 @@ const dataUW = [
     title: "Introduction to Programming III",
     src: "java.jpg",
     content: (
-      <p className="text-white">
+      <p className="text-neutral-700 dark:text-neutral-200">
         Balanced search trees, graphs, graph traversal algorithms, hash tables
         and sets, and complexity analysis and about classes of problems that
         require each data type. Required to design and implement using high
@@ -321,7 +386,7 @@ const dataUW = [
     title: "Introduction to Computer Engineering",
     src: "ce.jpg",
     content: (
-      <p className="text-white">
+      <p className="text-neutral-700 dark:text-neutral-200">
         Logic components built with transistors, rudimentary Boolean algebra,
         basic combinational logic design, basic synchronous sequential logic
         design, basic computer organization and design, introductory machine-
@@ -334,7 +399,7 @@ const dataUW = [
     title: "Machine Organization and Programming",
     src: "ce.jpg",
     content: (
-      <p className="text-white">
+      <p className="text-neutral-700 dark:text-neutral-200">
         An introduction to fundamental structures of computer systems and the C
         programming language with a focus on the low-level interrelationships
         and impacts on performance. Topics include the virtual address space and
@@ -349,7 +414,7 @@ const dataUW = [
     title: "Introduction to Computer Graphics",
     src: "cg.png",
     content: (
-      <p className="text-white">
+      <p className="text-neutral-700 dark:text-neutral-200">
         Survey of computer graphics. Image representation, formation,
         presentation, composition and manipulation. Modeling, transformation,
         and display of geometric objects in two and three dimensions.
@@ -363,7 +428,7 @@ const dataUW = [
     title: "Introduction to Algorithms",
     src: "algos.jpg",
     content: (
-      <p className="text-white">
+      <p className="text-neutral-700 dark:text-neutral-200">
         Basic paradigms for the design and analysis of efficient algorithms:
         greed, divide-and-conquer, dynamic programming, reductions, and the use
         of randomness. Computational intractability including typical
@@ -376,7 +441,7 @@ const dataUW = [
     title: "Introduction to Operating Systems",
     src: "os.jpg",
     content: (
-      <p className="text-white">
+      <p className="text-neutral-700 dark:text-neutral-200">
         Input-output hardware, interrupt handling, properties of magnetic tapes,
         discs and drums, associative memories and virtual address translation
         techniques. Batch processing, time sharing and real-time systems,
@@ -390,7 +455,7 @@ const dataUW = [
     title: "Introduction to Database Management Systems",
     src: "dbms.jpg",
     content: (
-      <p className="text-white">
+      <p className="text-neutral-700 dark:text-neutral-200">
         What a database management system is; different data models currently
         used to structure the logical view of the database: relational,
         hierarchical, and network. Hands-on experience with relational and
@@ -406,7 +471,7 @@ const dataUW = [
     title: "Foundation of Mobile Systems and Applications",
     src: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     content: (
-      <p className="text-white">
+      <p className="text-neutral-700 dark:text-neutral-200">
         Design and implementation of applications, systems, and services for
         mobile platforms with (i) constraints, such as limited processing,
         memory, energy, interfaces, variable bandwidth, and high mobility, and
@@ -420,7 +485,7 @@ const dataUW = [
     title: "Introduction to Artificial Intelligence",
     src: "ai.jpg",
     content: (
-      <p className="text-white">
+      <p className="text-neutral-700 dark:text-neutral-200">
         Principles of knowledge-based search techniques, automatic deduction,
         knowledge representation using predicate logic, machine learning,
         probabilistic reasoning. Applications in tasks such as problem solving,

@@ -108,7 +108,7 @@ const Hero = () => {
                 rel="noopener noreferrer"
               >
                 <MagicButton
-                  title="Check out my photography page"
+                  title="See my photography"
                   icon={<FaCamera className="h-4 w-4" />}
                   position="left"
                   buttonClasses="sm:w-60"

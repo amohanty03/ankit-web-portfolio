@@ -32,7 +32,7 @@ export function Experience() {
               />
               <div className="flex flex-col">
                 <p className="relative z-10 text-sm text-gray-50 sm:text-base md:text-base">
-                  Student Assistant
+                  Student Developer
                 </p>
                 <p className="text-xs text-gray-50 sm:text-sm">
                   Texas A&M University - Texas Engineering and Experiment
@@ -41,15 +41,22 @@ export function Experience() {
               </div>
             </div>
             <div className="text content z-10">
-              <h1 className="text-xs font-bold text-gray-50 sm:text-sm md:text-sm lg:text-base">
+              <h1 className="text-xs font-bold pt-4 text-gray-50 sm:text-sm md:text-sm lg:text-base">
                 Responsibilities:
               </h1>
               <ul className="text-xs leading-5 text-gray-50 text-justify sm:text-sm">
                 <li>
-                  Spearheading design and development of a full-featured,
-                  responsive website from scratch using HTML, CSS, and
-                  JavaScript to support the Industry & Nonprofit Partnerships
-                  initiative.
+                  Shipped the end-to-end registration and judging platform for
+                  an annual engineering competition serving 2,000+ students and
+                  200+ industry partners, built on an OpenWater-hosted platform
+                  owning the full design-to-deployment cycle.
+                </li>
+                <li>
+                  Engineered a Python-based ETL pipeline to streamline project
+                  data distribution and automate winner award calculations
+                  serving 2,000+ students, replacing manual spreadsheet
+                  tabulation that reduced the award announcement cycle by 90%
+                  while ensuring 100% data integrity.
                 </li>
               </ul>
             </div>
@@ -87,20 +94,15 @@ export function Experience() {
               </div>
             </div>
             <div className="text content z-10">
-              <h1 className="text-xs font-bold text-gray-50 sm:text-sm md:text-sm lg:text-base">
+              <h1 className="text-xs font-bold pt-4 text-gray-50 sm:text-sm md:text-sm lg:text-base">
                 Responsibilities:
               </h1>
               <ul className="text-xs leading-5 text-gray-50 text-justify sm:text-sm">
                 <li>
-                  Analyzed weekly PHQ-9 and PCL-5 depression scores from a
-                  longitudinal study using Python and scikit-learn under Dr.
-                  So-Min Cheong.
-                </li>
-                <li>
-                  Generated participant-level imputed datasets using MICE
-                  (Multiple Imputation by Chained Equations), visualized trends
-                  over time, and ensured methodological alignment with
-                  peer-reviewed standards.
+                  Engineered a predictive analysis pipeline in Python to model
+                  longitudinal mental health trends, automating feature
+                  extraction from clinical datasets to identify high-risk
+                  behavioral patterns for 23 subjects under Dr. So-Min Cheong.
                 </li>
               </ul>
             </div>
@@ -123,7 +125,7 @@ export function Experience() {
               <Image
                 height={100}
                 width={100}
-                alt="UW–Madison"
+                alt="UW-Madison"
                 src="/cdis.png"
                 className="h-10 w-10 rounded-full border-2 object-cover"
               />
@@ -132,17 +134,17 @@ export function Experience() {
                   Undergraduate Research Assistant
                 </p>
                 <p className="text-xs text-gray-50 sm:text-sm">
-                  University of Wisconsin – Madison | Madison, Wisconsin
+                  University of Wisconsin - Madison | Madison, Wisconsin
                 </p>
               </div>
             </div>
             <div className="text content z-10">
-              <h1 className="text-xs font-bold text-gray-50 sm:text-sm md:text-sm lg:text-base">
+              <h1 className="text-xs font-bold pt-4 text-gray-50 sm:text-sm md:text-sm lg:text-base">
                 Responsibilities:
               </h1>
               <ul className="text-xs leading-5 text-gray-50 text-justify sm:text-sm">
                 <li>
-                  Leveraged OpenAI’s API to develop a database of Li-ion cathode
+                  Leveraged OpenAI's API to develop a database of Li-ion cathode
                   battery voltages across 100+ materials, comparing results
                   against leading databases to enhance data reliability under
                   Dr. Benjamin Afflerbach.
@@ -187,23 +189,25 @@ export function Experience() {
               </div>
             </div>
             <div className="text content z-10">
-              <h1 className="text-xs font-bold text-gray-50 sm:text-sm md:text-sm lg:text-base">
+              <h1 className="text-xs font-bold pt-4 text-gray-50 sm:text-sm md:text-sm lg:text-base">
                 Responsibilities:
               </h1>
               <ul className="text-xs leading-5 text-gray-50 text-justify sm:text-sm">
                 <li>
-                  Enhanced application performance by optimizing SQL Server
-                  queries and implementing indexing strategies, leading to a
-                  200% improvement in responsiveness for laser test engineers.
+                  Cut laser test engineer wait times by 3× by profiling and
+                  restructuring slow SQL Server queries, added indexing
+                  strategies and rewrote N+1 patterns that had gone unnoticed
+                  for years.
                 </li>
                 <li>
-                  Streamlined data generation processes by integrating C# .NET
-                  applications, resulting in a 16% increase in operational
-                  efficiency for laser classification tasks.
+                  Automated a manual laser classification pipeline using C#
+                  .NET, recovering 16% of engineering time previously lost to
+                  repetitive data handling.
                 </li>
                 <li>
-                  Automated Power BI reporting for AS9100 compliance, improved
-                  manufacturing failure detection by 30%.
+                  Replaced a manual AS9100 compliance process with automated
+                  Power BI dashboards, improving manufacturing defect detection
+                  by 30% and eliminating audit prep overhead.
                 </li>
               </ul>
             </div>

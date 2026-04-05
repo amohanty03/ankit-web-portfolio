@@ -98,7 +98,7 @@ export default function Contact() {
       >
         <div className="p-1 sm:p-2">
           <div>
-            <h3 className="text-3xl font-semibold text-neutral-900 dark:text-white sm:text-4xl">
+            <h3 className="text-xl font-semibold text-neutral-900 dark:text-white sm:text-4xl">
               Get in touch
             </h3>
             <p className="mt-4 max-w-md text-sm leading-relaxed text-neutral-700 dark:text-neutral-200 sm:text-base">
