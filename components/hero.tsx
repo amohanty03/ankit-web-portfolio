@@ -20,7 +20,7 @@ const Hero = () => {
 
   useEffect(() => {
     const onScroll = () => {
-      setIsScrolled(window.scrollY > 80);
+      setIsScrolled(window.scrollY > 50);
     };
 
     onScroll();
@@ -29,7 +29,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative flex w-full min-h-screen items-start pt-8 sm:items-center sm:pt-0">
+    <div className="relative flex w-full min-h-[100dvh] flex-col items-center justify-center overflow-x-hidden">
       <motion.div
         initial={{ opacity: 0.0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -38,7 +38,7 @@ const Hero = () => {
           duration: 0.45,
           ease: "easeOut",
         }}
-        className="relative flex w-full flex-col items-center justify-start gap-6 px-2 sm:px-4  md:px-6 lg:px-8"
+        className="relative z-10 flex w-full flex-col items-center justify-center gap-6 px-4 pb-32 pt-8 sm:px-6 lg:px-8"
       >
         <div className="flex w-full justify-center">
           <div className="flex w-full max-w-4xl flex-nowrap items-center justify-center gap-2 sm:gap-4">
@@ -46,12 +46,13 @@ const Hero = () => {
               <span className="h-1.5 w-1.5 rounded-full dark:bg-amber-300 bg-amber-900 sm:h-2 sm:w-2" />
               College Station, TX
             </div>
-            <div className="inline-flex items-center gap-2 rounded-full border dark:border-emerald-300/40 border-emerald-900/40  bg-emerald-50/5 px-2.5 py-1.5 text-[9px] font-medium uppercase tracking-[0.18em] dark:text-emerald-300 text-emerald-900 sm:gap-3 sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.2em]">
+            <div className="inline-flex items-center gap-2 rounded-full border dark:border-emerald-300/40 border-emerald-900/40 bg-emerald-50/5 px-2.5 py-1.5 text-[9px] font-medium uppercase tracking-[0.18em] dark:text-emerald-300 text-emerald-900 sm:gap-3 sm:px-4 sm:py-2 sm:text-xs sm:tracking-[0.2em]">
               <span className="h-1.5 w-1.5 rounded-full dark:bg-emerald-400 bg-emerald-900 sm:h-2 sm:w-2" />
               Open to New Grad Roles
             </div>
           </div>
         </div>
+
         <div className="mx-auto flex w-full max-w-5xl flex-col items-center justify-center px-0 py-0 sm:px-2">
           <Terminal
             className="max-w-5xl"
@@ -99,6 +100,7 @@ const Hero = () => {
             initialDelay={0}
           />
         </div>
+
         <div className="flex w-full justify-center">
           <div className="flex w-full max-w-6xl flex-wrap items-center justify-center gap-4 text-white">
             <div className="flex px-2">
@@ -157,26 +159,27 @@ const Hero = () => {
             </div>
           </div>
         </div>
+      </motion.div>
+
+      <motion.div
+        aria-hidden="true"
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: isScrolled ? 0 : 1,
+          y: isScrolled ? 15 : 0,
+        }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
+        className="absolute bottom-12 left-0 right-0 mx-auto flex w-fit flex-col items-center gap-2 pointer-events-none z-20"
+      >
+        <span className="text-[10px] font-medium uppercase tracking-[0.22em] dark:text-white/70 text-black/70 sm:text-xs">
+          Scroll Down
+        </span>
         <motion.div
-          aria-hidden="true"
-          animate={{
-            opacity: isScrolled ? 0 : 1,
-            y: isScrolled ? -10 : 0,
-            scale: isScrolled ? 0.96 : 1,
-          }}
-          transition={{ duration: 0.25, ease: "easeOut" }}
-          className="pointer-events-none mt-6 sm:mt-8 md:mt-10 inline-flex flex-col items-center gap-2 dark:text-white text-black"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="dark:text-white text-black"
         >
-          <span className="text-[10px] font-medium uppercase tracking-[0.22em] sm:text-xs">
-            Scroll Down
-          </span>
-          <motion.span
-            animate={{ y: [0, 8, 0], opacity: [0.55, 1, 0.55] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="flex h-9 w-9 items-center justify-center rounded-full"
-          >
-            <FaAnglesDown className="h-4 w-4" />
-          </motion.span>
+          <FaAnglesDown className="h-5 w-5" />
         </motion.div>
       </motion.div>
     </div>
