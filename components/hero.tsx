@@ -177,9 +177,9 @@ const Hero = () => {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="dark:text-white text-black"
+          className="dark:text-white/70 text-black/70"
         >
-          <FaAnglesDown className="h-5 w-5" />
+          <FaAnglesDown className="h-4.5 w-4.5" />
         </motion.div>
       </motion.div>
     </div>

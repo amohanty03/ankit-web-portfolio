@@ -22,4 +22,8 @@ const nextConfig: NextConfig = {
 
 export default nextConfig;
 
-import('@opennextjs/cloudflare').then(m => m.initOpenNextCloudflareForDev());
+void import("@opennextjs/cloudflare")
+  .then((module) => module.initOpenNextCloudflareForDev())
+  .catch(() => {
+    // Ignore if OpenNext Cloudflare isn't installed in local environments.
+  });
