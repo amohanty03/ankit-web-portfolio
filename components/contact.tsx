@@ -47,6 +47,7 @@ export default function Contact() {
   const [copiedEmail, setCopiedEmail] = React.useState(false);
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
+  const [subject, setSubject] = React.useState("");
   const [message, setMessage] = React.useState("");
 
   const handleCopyEmail = async () => {
@@ -68,8 +69,14 @@ export default function Contact() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const subject = `Portfolio inquiry from ${name || "Visitor"}`;
+    const mailtoHref = getMailtoHref();
+
+    if (!mailtoHref || mailtoHref === "mailto:") {
+      return;
+    }
+
     const bodyLines = [
+      `Subject: ${subject || "N/A"}`,
       `Name: ${name || "N/A"}`,
       `Email: ${email || "N/A"}`,
       "",
@@ -78,11 +85,11 @@ export default function Contact() {
     ];
 
     const params = new URLSearchParams({
-      subject,
+      subject: subject.trim(),
       body: bodyLines.join("\n"),
     });
 
-    window.location.href = `${getMailtoHref()}?${params.toString()}`;
+    window.location.assign(`${mailtoHref}?${params.toString()}`);
   };
 
   return (
@@ -219,13 +226,13 @@ export default function Contact() {
 
             <label className="block">
               <span className="mb-2 block text-xs uppercase tracking-[0.16em] text-neutral-500 dark:text-neutral-400">
-                Email
+                Subject
               </span>
               <input
-                type="email"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-                placeholder="you@example.com"
+                type="text"
+                value={subject}
+                onChange={(event) => setSubject(event.target.value)}
+                placeholder="Subject"
                 required
                 className="w-full rounded-xl border border-black/10 bg-white/75 px-4 py-3 text-sm text-neutral-900 outline-none transition-colors focus:border-orange-500/50 dark:border-white/10 dark:bg-black/30 dark:text-neutral-100"
               />
