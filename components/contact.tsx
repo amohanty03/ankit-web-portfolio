@@ -75,7 +75,7 @@ export default function Contact() {
       return;
     }
 
-    const bodyLines = ["Hey Ankit,", message || "N/A"];
+    const bodyLines = ["Hey Ankit,", "", message || "N/A"];
 
     const formattedSubject = `${subject.trim()} - ${name.trim()}`;
     const encodedSubject = encodeURIComponent(formattedSubject);
