@@ -84,12 +84,12 @@ export default function Contact() {
       message || "N/A",
     ];
 
-    const params = new URLSearchParams({
-      subject: subject.trim(),
-      body: bodyLines.join("\n"),
-    });
+    const encodedSubject = encodeURIComponent(subject.trim());
+    const encodedBody = encodeURIComponent(bodyLines.join("\n"));
 
-    window.location.assign(`${mailtoHref}?${params.toString()}`);
+    window.location.assign(
+      `${mailtoHref}?subject=${encodedSubject}&body=${encodedBody}`,
+    );
   };
 
   return (
