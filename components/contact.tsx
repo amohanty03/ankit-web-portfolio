@@ -75,16 +75,10 @@ export default function Contact() {
       return;
     }
 
-    const bodyLines = [
-      `Subject: ${subject || "N/A"}`,
-      `Name: ${name || "N/A"}`,
-      `Email: ${email || "N/A"}`,
-      "",
-      "Message:",
-      message || "N/A",
-    ];
+    const bodyLines = ["Hey Ankit,", message || "N/A"];
 
-    const encodedSubject = encodeURIComponent(subject.trim());
+    const formattedSubject = `${subject.trim()} - ${name.trim()}`;
+    const encodedSubject = encodeURIComponent(formattedSubject);
     const encodedBody = encodeURIComponent(bodyLines.join("\n"));
 
     window.location.assign(
@@ -220,6 +214,7 @@ export default function Contact() {
                 value={name}
                 onChange={(event) => setName(event.target.value)}
                 placeholder="Your name"
+                required
                 className="w-full rounded-xl border border-black/10 bg-white/75 px-4 py-3 text-sm text-neutral-900 outline-none transition-colors focus:border-orange-500/50 dark:border-white/10 dark:bg-black/30 dark:text-neutral-100"
               />
             </label>
